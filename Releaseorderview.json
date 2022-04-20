@@ -1,0 +1,270 @@
+[
+  {
+    "Size": 12,
+    "Key": "invoice",
+    "Content_Type": "invoice-view",
+    "Content": {
+      "Source": "get/Orders/Release/OrderData/",
+      "Print": "Orders/Release/Print/",
+      "PrintFilePrefix": "Release_Order",
+      "PrintFileCode": "OrderNo",
+      "Elements": [
+        {
+          "Size": 12,
+          "Key": "orderHeader",
+          "Content_Type": "header",
+          "Content": [
+            {
+              "Key": "orderImage",
+              "Content_Type": "brand",
+              "Content": {
+                "Source": "get/Manage/BusinessInfo/Logo/",
+                "Height": "60"
+              }
+            },
+            {
+              "Key": "orderSmallElement",
+              "Content_Type": "small-elements",
+              "Content": {
+                "Elements": [
+                  {
+                    "Key": "BusinessAddress",
+                    "Source": "get/Manage/BusinessInfo/Address/",
+                    "Type": "text"
+                  }
+                ],
+                "Class": "ms-auto"
+              }
+            }
+          ]
+        },
+        {
+          "Size": 4,
+          "Key": "orderInvoiceElementOne",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Title": "Customer",
+            "Elements": [
+              {
+                "Key": "OrderNo",
+                "Type": "text",
+                "Label": "RO No.",
+                "Style": {
+                  "fontWeight": "bold"
+                }
+              },
+              {
+                "Key": "AENo",
+                "Type": "text",
+                "Label": "AME No."
+              },
+              {
+                "Key": "Job",
+                "Label": "Job No.",
+                "Type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "orderInvoiceElementTwo",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "OrderDate",
+                "Type": "date",
+                "Label": "Date",
+                "Style": {
+                  "fontWeight": "bold"
+                }
+              },
+              {
+                "Key": "EstimateDate",
+                "Type": "date",
+                "Label": "Date"
+              },
+              {
+                "Key": "JobDate",
+                "Type": "date",
+                "Label": "Date"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "orderInvoiceElementThree",
+          "Content_Type": "invoice-elements",
+          "Source": "get/Masters/Suppliers/SupplierAddress/",
+          "SourceRequestBody": [
+            [
+              "Id",
+              "Id"
+            ]
+          ],
+          "BaseValues": [
+            "Name",
+            "Address",
+            "City",
+            "Pincode",
+            "GSTIN"
+          ]
+        },
+
+        {
+          "Size": 12,
+          "Key": "orderInvoiceElementFour",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "ClientName",
+                "Type": "text",
+                "Label": "Client Name"
+              },
+              {
+                "Key": "Title",
+                "Type": "text",
+                "Label": "Product"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Key": "orderInvoiceRowOne",
+          "Content_Type": "invoice-rows",
+          "Content": {
+            "Source": "get/Orders/Release/OrderRows/",
+            "RequestBody": [
+              [
+                "Id",
+                "id"
+              ]
+            ],
+            "Elements": [
+              {
+                "Key": "No",
+                "Label": "Sl No.",
+                "Width": "50"
+              },
+              {
+                "Key": "Particular",
+                "Label": "Description",
+                "Width": "20%"
+              },
+              {
+                "Size": 12,
+                "Key": "estimateInvoiceElementFour",
+                "Content_Type": "invoice-elements",
+                "Content": {
+                  "Elements": [
+                    {
+                      "Key": "Title",
+                      "Type": "text",
+                      "Label": "Product"
+                    }
+                  ]
+                }
+              },
+              {
+                "Key": "Product",
+                "Source": "get/Orders/Release/RowTitles/",
+                "SourceRequestBody": [
+                  [
+                    "Product",
+                    "Product"
+                  ]
+                ]
+              },
+              {
+                "Key": "Net",
+                "Label": "Amount",
+                "Class": "text-right",
+                "IsNumber": true,
+                "FractionDigits": 2
+              }
+            ]
+          }
+        },
+        {
+          "Size": 8,
+          "Key": "orderInvoiceElementFive",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "Remarks",
+                "Type": "remarks"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "orderInvoiceElementSubTotal",
+          "Content_Type": "invoice-subtotal",
+          "Content": {
+            "Source": "get/Orders/Release/SubTotal/",
+            "RequestBody": [
+              [
+                "Id",
+                "id"
+              ]
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Key": "orderInvoiceElementSix",
+          "Content_Type": "button-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "estimateEdit",
+                "Type": "link",
+                "Class": "btn btn-warning",
+                "Link": "/Orders/Release/Edit/{Id}",
+                "Access": [
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Label": "EDIT RELEASE ORDER"
+              },
+              {
+                "Key": "orderPrintOne",
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Orders/Release/Print/?requested={Id}&LetterHead=On&Colour=True",
+                "Target": "_blank",
+                "PrintFileSuffix": "CR",
+                "Label": "PDF WITH LetterHead and Colour"
+              },
+              {
+                "Key": "ordersPrintTwo",
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Orders/Release/Print/?requested={Id}&LetterHead=Off&Colour=False",
+                "Target": "_blank",
+                "PrintFileSuffix": "NH",
+                "Label": "PDF WITHOUT LetterHead"
+              },
+              {
+                "Key": "ordersPrintThree",
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Orders/Release/Print/?requested={Id}&LetterHead=On&Colour=False",
+                "Target": "_blank",
+                "PrintFileSuffix": "BW",
+                "Label": "PDF B&W"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

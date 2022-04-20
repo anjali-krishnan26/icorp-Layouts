@@ -1,0 +1,50 @@
+[
+  {
+    "Size": 12,
+    "Key": "formRowOne",
+    "Content_Type": "form",
+    "Content": {
+      "Path": "create/Masters/Departments/",
+      "Split": [
+        4,
+        8
+      ],
+      "Button": "ADD DEPARTMENT",
+      "Elements": [
+        {
+          "Label": "Department",
+          "Key": "Department",
+          "Type": "text",
+          "Name": "Department",
+          "Placeholder": "Enter Department Name",
+          "Required": 1,
+          "MaxLength": 5
+        },
+        {
+          "Label": "Email",
+          "Key": "Email",
+          "Type": "text",
+          "Name": "Email",
+          "Placeholder": "Enter Email Address",
+          "Required": 1
+        },
+        {
+          "Label": "Phone",
+          "Key": "Phone",
+          "Type": "text",
+          "Name": "Phone",
+          "Placeholder": "Enter Phone",
+          "Required": 0
+        },
+        {
+          "Label": "Description",
+          "Key": "Description",
+          "Name": "Description",
+          "Type": "textarea",
+          "Placeholder": "Enter Description",
+          "Required": 0
+        }
+      ]
+    }
+  }
+]

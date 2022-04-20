@@ -1,0 +1,123 @@
+[
+  {
+    "Size": 12,
+    "Key": "formRowOne",
+    "Content_Type": "form",
+    "Content": {
+      "Path": "create/Manage/Staffs/",
+      "Split": [
+        4,
+        8
+      ],
+      "Button": "ADD STAFF",
+      "Elements": [
+        {
+          "Label": "Full Name",
+          "Type": "text",
+          "Name": "Name",
+          "Placeholder": "Enter Staff Name",
+          "Required": 1
+        },
+        {
+          "Label": "Email",
+          "Type": "text",
+          "Name": "Email",
+          "Placeholder": "Enter Staff Email",
+          "Required": 1
+        },
+        {
+          "Label": "Phone No.",
+          "Type": "text",
+          "Name": "Phone",
+          "Placeholder": "Enter Staff Phone",
+          "Required": 1
+        },
+        {
+          "Label": "Address",
+          "Type": "textarea",
+          "Name": "Address",
+          "Placeholder": "Enter Staff Address",
+          "Required": 0
+        },
+        {
+          "Label": "Country",
+          "Key": "Country",
+          "Type": "select",
+          "Name": "Country",
+          "Source": "list/Basic/country/all/",
+          "OnChange": {
+            "Name": "Region",
+            "Source": "list/Basic/region/all/",
+            "Response": "Options"
+          },
+          "Required": 1
+        },
+        {
+          "Label": "State",
+          "Key": "Region",
+          "Name": "Region",
+          "Type": "select",
+          "Disabled": true,
+          "Required": 1
+        },
+        {
+          "Label": "Branch",
+          "Type": "select",
+          "Name": "Branch",
+          "Source": "list/Manage/Branches/active/",
+          "Required": 1
+        },
+        {
+          "Label": "Department",
+          "Type": "select",
+          "Name": "Department",
+          "Source": "list/Manage/Departments/all/",
+          "OnChange": {
+            "Name": "Position",
+            "Source": "get/Manage/Staffs/GetPositions/",
+            "Response": "Options"
+          },
+          "Required": "1"
+        },
+        {
+          "Label": "Position",
+          "Name": "Position",
+          "Type": "select",
+          "Disabled": true,
+          "Required": 1
+        },
+        {
+          "Label": "iCORP User",
+          "Key": "icorpUser",
+          "Type": "checkbox",
+          "Name": "icorpUser",
+          "Value": 1,
+          "OnChange": {
+            "Name": "Password",
+            "Response": "Enable"
+          }
+        },
+        {
+          "Label": "Password",
+          "Type": "password",
+          "Name": "Password",
+          "Placeholder": "Enter Staff password",
+          "Required": 1,
+          "Disabled": true,
+          "OnChange": {
+            "Name": "Retype_Password",
+            "Response": "Enable"
+          }
+        },
+        {
+          "Label": "Retype Password",
+          "Type": "password",
+          "Name": "Retype_Password",
+          "Placeholder": "Retype Staff password",
+          "Required": 1,
+          "Disabled": true
+        }
+      ]
+    }
+  }
+]

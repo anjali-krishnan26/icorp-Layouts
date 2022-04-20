@@ -1,0 +1,634 @@
+[
+  {
+    "Size": 12,
+    "Key": "invoiceRow",
+    "Content_Type": "invoice",
+    "Content": {
+      "Path": "update/Estimates/Events/",
+      "Source": "get/Estimates/Events/",
+      "Button": "UPDATE ESTIMATE",
+      "OnSuccess": "/Estimates/Events",
+      "SourceResponseRemove": [
+        "Finance",
+        "Rows",
+        "Header",
+        "Created_At"
+      ],
+      "SourceResponseFill": [
+        [
+          "Client",
+          "Id"
+        ]
+      ],
+      "Elements": [
+        {
+          "Size": 12,
+          "Key": "headerOne",
+          "Content_Type": "header-form",
+          "Content": [
+            {
+              "Content_Type": "brand",
+              "Key": "imageOne",
+              "Content": {
+                "Source": "get/Manage/BusinessInfo/Logo/",
+                "Height": "60"
+              }
+            },
+            {
+              "Content_Type": "small-form-elements",
+              "Key": "smallFormElementOne",
+              "Content": {
+                "Elements": [
+                  {
+                    "Type": "date",
+                    "Label": "Date",
+                    "Key": "EstimateDate",
+                    "Name": "EstimateDate",
+                    "Default": "Today",
+                    "Required": 1,
+                    "Placeholder": "Estimate Date"
+                  }
+                ],
+                "Class": "ms-auto"
+              }
+            }
+          ]
+        },
+        {
+          "Size": 4,
+          "Content_Type": "form-elements",
+          "Key": "formElementOne",
+          "Content": {
+            "Elements": [
+              {
+                "Label": "Client Details",
+                "Type": "async-select",
+                "Name": "ClientName",
+                "Source": "get/Masters/Clients/searchEntity/",
+                "SourceRequestBody": [
+                  [
+                    "term",
+                    ""
+                  ]
+                ],
+                "OnChangeFill": [
+                  "Id",
+                  "Address",
+                  "GSTIN",
+                  "PANNO"
+                ],
+                "Get": [
+                  "Tax"
+                ],
+                "hasDefaultOptions": true,
+                "Placeholder": "Enter Client Name",
+                "OnChange": "TaxInputGenerate('subtotal_tax',{'Client': $('#Id').val()})",
+                "Required": 1,
+                "Key": "Client Details"
+              },
+              {
+                "Type": "hidden",
+                "Name": "Id",
+                "Key": "Id"
+              },
+              {
+                "Label": "Address",
+                "Type": "textarea",
+                "Name": "Address",
+                "Placeholder": "Enter Office Address",
+                "Required": 0,
+                "Key": "Address"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Content_Type": "form-elements",
+          "Key": "formElementTwo",
+          "Content": {
+            "Elements": [
+              {
+                "Label": "GSTIN",
+                "Type": "text",
+                "Key": "GSTIN",
+                "Name": "GSTIN",
+                "Placeholder": "Enter GSTIN",
+                "Required": 0,
+                "Disabled": true
+              },
+              {
+                "Label": "PAN",
+                "Type": "text",
+                "Key": "PANNO",
+                "Name": "PANNO",
+                "Placeholder": "Enter PAN",
+                "Required": 0,
+                "Disabled": true
+              },
+              {
+                "Label": "Valid Till",
+                "Type": "date",
+                "Name": "EndDate",
+                "Default": "+15 Days",
+                "Placeholder": "",
+                "Required": 0,
+                "Key": "EndDate"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Content_Type": "form-elements",
+          "Key": "formElementThree",
+          "Content": {
+            "Elements": [
+              {
+                "Label": "Estimate No. #",
+                "Type": "text",
+                "Source": "get/Estimates/Events/NewEstimateNumber/",
+                "Name": "EstimateNo",
+                "Placeholder": "Estimate Number",
+                "Required": 1,
+                "Key": "EstimateNo"
+              },
+              {
+                "Label": "Job No.",
+                "Type": "select",
+                "IsMulti": "true",
+                "SelectLimit": 1,
+                "Name": "JobId[]",
+                "Source": "get/Estimates/Events/JobsToEstimate/",
+                "OnClear": {
+                  "data": [
+                    "Title",
+                    "ClientName",
+                    "Id",
+                    "Address",
+                    "JobId[]",
+                    "GSTIN"
+                  ],
+                  "rowData": [
+                    {
+                      "value": "",
+                      "key": [
+                        "multipleForm-ignore",
+                        0,
+                        "Particular[]"
+                      ]
+                    },
+                    {
+                      "value": "",
+                      "key": [
+                        "multipleForm-ignore",
+                        0,
+                        "Parameters-ignore",
+                        0,
+                        "Product[]"
+                      ]
+                    }
+                  ]
+                },
+                "OnChange": {
+                  "Name": "SelectedJobs",
+                  "Source": "get/Job/detailsForEstimate/",
+                  "Response": "Options",
+                  "SourceRequestBody": [
+                    [
+                      "this",
+                      "Job"
+                    ]
+                  ],
+                  "ResponseOptions": "JobSelect",
+                  "SetState": [
+                    "JobSelect"
+                  ],
+                  "ResponseFillMultipleForm": [
+                    {
+                      "value": [
+                        "JobData",
+                        "Particular"
+                      ],
+                      "key": [
+                        "multipleForm-ignore",
+                        0,
+                        "Particular[]"
+                      ]
+                    },
+                    {
+                      "value": [
+                        "JobData",
+                        "SubProduct"
+                      ],
+                      "key": [
+                        "multipleForm-ignore",
+                        0,
+                        "Parameters-ignore",
+                        0,
+                        "Product[]"
+                      ]
+                    }
+                  ],
+                  "ResponseFill": [
+                    {
+                      "Title": [
+                        "JobData",
+                        "Title"
+                      ]
+                    },
+                    {
+                      "ClientName": [
+                        "ClientData",
+                        "Name"
+                      ]
+                    },
+                    {
+                      "Id": [
+                        "ClientData",
+                        "_id"
+                      ]
+                    },
+                    {
+                      "Address": [
+                        "ClientData",
+                        "Address"
+                      ]
+                    },
+                    {
+                      "GSTIN": [
+                        "ClientData",
+                        "GSTIN"
+                      ]
+                    },
+                    {
+                      "PANNO": [
+                        "ClientData",
+                        "PANNO"
+                      ]
+                    }
+                  ]
+                },
+                "Key": "JobSelector"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Content_Type": "form-elements",
+          "Key": "formElementFour",
+          "Content": {
+            "Elements": [
+              {
+                "Label": "Title",
+                "Name": "Title",
+                "Key": "Title",
+                "Placeholder": "Enter the job title",
+                "Type": "text",
+                "Required": 1
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Content_Type": "form-elements",
+          "Key": "formElementFive",
+          "Content": {
+            "Elements": [
+              {
+                "Name": "multipleForm-ignore",
+                "Type": "multiple",
+                "Display": "table",
+                "Add": "Add",
+                "AddVariant": "success",
+                "DeleteIcon": true,
+                "DeleteLabel": "Action",
+                "DeleteVariant": "danger",
+                "Key": "multipleFormOne",
+                "Elements": [
+                  {
+                    "Label": "Particular",
+                    "Type": "editor",
+                    "Width": "500",
+                    "Class": "textarea Particular",
+                    "Name": "Particular[]",
+                    "Key": "Particular",
+                    "Default": ""
+                  },
+                  {
+                    "Type": "parameters",
+                    "Width": "200",
+                    "Label": "Product Details",
+                    "Key": "parameters",
+                    "Name": "Parameters-ignore",
+                    "Elements": [
+                      {
+                        "Label": "Sub Product",
+                        "Type": "select",
+                        "Name": "Product[]",
+                        "Class": "Product",
+                        "Source": "get/Estimates/Events/SubProducts/",
+                        "copyInitialValues": [
+                          "multipleForm-ignore",
+                          0,
+                          "Parameters-ignore",
+                          0,
+                          "Product[]"
+                        ],
+                        "OnChange": {
+                          "Name": "SubProduct",
+                          "Source": "get/Estimates/Events/ProductParameters/",
+                          "SourceRequestBody": [
+                            [
+                              "Product",
+                              "Product[]"
+                            ]
+                          ],
+                          "Response": "Add",
+                          "Type": "measurements"
+                        },
+                        "RelativeDiv": "ProductParameters",
+                        "Required": 1
+                      }
+                    ]
+                  },
+                  {
+                    "Label": "Rate",
+                    "Type": "text",
+                    "Name": "Rate[]",
+                    "Class": "money multiply",
+                    "Default": "0",
+                    "OnChange": {
+                      "Calculate": {
+                        "data": [
+                          "Rate[]"
+                        ],
+                        "Operators": [
+                          "add"
+                        ],
+                        "resultFill": "Net[]"
+                      }
+                    },
+                    "Key": "Rate"
+                  },
+                  {
+                    "Type": "parameters",
+                    "Width": "200",
+                    "Label": "Supplier Details",
+                    "Key": "suppliers",
+                    "Name": "Suppliers-ignore",
+                    "Elements": [
+                      {
+                        "Label": "Supplier",
+                        "Type": "select",
+                        "IsMulti": true,
+                        "SelectLimit": 1000,
+                        "Name": "Supplier[]",
+                        "Class": "Supplier",
+                        "Source": "list/Masters/Suppliers/active/",
+                        "Required": 0
+                      },
+                      {
+                        "Label": "Costing",
+                        "Key": "Costing",
+                        "Type": "percentage",
+                        "Percentage": true,
+                        "Class": "money",
+                        "Name": "Costing[]",
+                        "BaseValue": "Rate[]",
+                        "Split": [
+                          12,
+                          12,
+                          12,
+                          12
+                        ],
+                        "OnChange": {
+                          "Calculate": {
+                            "data": [
+                              "this"
+                            ],
+                            "Operators": [
+                              "add"
+                            ],
+                            "resultFill": "NetCosting[]"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "Label": "Net Rate",
+                    "Type": "text",
+                    "Name": "Net[]",
+                    "Class": "net money",
+                    "Default": "0",
+                    "OnChange": {
+                      "CalculateRows": {
+                        "data": "Net[]",
+                        "Operator": "add",
+                        "resultFill": "Total"
+                      }
+                    },
+                    "Disabled": true,
+                    "Key": "Net"
+                  },
+                  {
+                    "Label": "Net Costing",
+                    "Type": "hidden",
+                    "Name": "NetCosting[]",
+                    "Class": "net money",
+                    "Default": "0",
+                    "OnChange": {
+                      "CalculateRows": {
+                        "data": "NetCosting[]",
+                        "Operator": "add",
+                        "resultFill": "TotalCosting"
+                      }
+                    },
+                    "Disabled": true,
+                    "Key": "NetCosting"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "Size": 6,
+          "Key": "formElementsFive",
+          "Content_Type": "form-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Type": "editor",
+                "Key": "Remarks",
+                "Label": "Remarks",
+                "Name": "Remarks",
+                "Rows": 5,
+                "Placeholder": "Any important message to add"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 6,
+          "Key": "subTotalOne",
+          "Content_Type": "form-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Label": "Total",
+                "Type": "text",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "Total",
+                "Disabled": true,
+                "Key": "Total",
+                "Default": "0"
+              },
+              {
+                "Label": "Discount",
+                "Key": "Discount",
+                "Type": "percentage",
+                "Percentage": true,
+                "Class": "subtract money",
+                "Name": "Discount",
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "TotalCosting",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
+              },
+              {
+                "Label": "Estimated Revenue",
+                "Type": "text",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "EstimatedRevenue",
+                "Disabled": true,
+                "Key": "Revenue",
+                "Default": "0.00",
+                "BaseValues": [
+                  "DiscountAmount",
+                  "TotalCosting"
+                ],
+                "Operators": [
+                  "add",
+                  "subtract"
+                ]
+              },
+              {
+                "Type": "Tax",
+                "Key": "Tax",
+                "Name": "Tax-Ignore",
+                "Source": "get/Estimates/Events/Tax/",
+                "SourceRequestBody": [
+                  [
+                    "Client",
+                    "Id"
+                  ]
+                ],
+                "BaseValues": [
+                  "Total",
+                  "Discount"
+                ],
+                "Operators": [
+                  "add",
+                  "subtract"
+                ],
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "add"
+                      ],
+                      "RoundAndFill": "RoundOff"
+                    },
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this",
+                        "RoundOff"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "add",
+                        "add"
+                      ],
+                      "Fill": "GrandTotal"
+                    }
+                  ]
+                }
+              },
+              {
+                "Type": "roundOff",
+                "Key": "RoundOff",
+                "Label": "Round Off",
+                "Name": "RoundOff",
+                "Class": "add money",
+                "Percentage": false,
+                "Default": "0",
+                "BaseValues": [
+                  "Total",
+                  "Discount",
+                  "Tax"
+                ],
+                "Operators": [
+                  "add",
+                  "subtract",
+                  "add"
+                ],
+                "Disabled": true
+              },
+              {
+                "Label": "Grand Total",
+                "Key": "Grand Total",
+                "Type": "total",
+                "Default": "0",
+                "Percentage": false,
+                "Name": "GrandTotal",
+                "BaseValues": [
+                  "Total",
+                  "Discount",
+                  "Tax",
+                  "RoundOff"
+                ],
+                "Operators": [
+                  "add",
+                  "subtract",
+                  "add",
+                  "add"
+                ],
+                "Disabled": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "Size": 12,
+    "Content_Type": "edit_form",
+    "Content": {
+      "Path": "update/Manage/Staffs/",
+      "Source": "get/Manage/Staffs/",
+      "SourceRequestBody": [
+        [
+          "Id",
+          "id"
+        ]
+      ],
+      "SourceResponseRemove": [
+        "Position"
+      ],
+      "Split": [
+        4,
+        8
+      ],
+      "Button": "UPDATE",
+      "OnSuccess": "/Manage/Staffs",
+      "Elements": [
+        {
+          "Type": "hidden",
+          "Name": "Id",
+          "Key": "Id"
+        },
+        {
+          "Label": "Name",
+          "Type": "text",
+          "Name": "Name",
+          "Key": "Name",
+          "Placeholder": "Enter Staff Name",
+          "Required": 1
+        },
+        {
+          "Label": "Email",
+          "Type": "text",
+          "Key": "Email",
+          "Name": "Email",
+          "Placeholder": "Enter Staff Email",
+          "Required": 1
+        },
+        {
+          "Label": "Phone",
+          "Type": "text",
+          "Name": "Phone",
+          "Key": "Phone",
+          "Placeholder": "Enter Staff Phone",
+          "Required": 1
+        },
+        {
+          "Label": "Address",
+          "Type": "textarea",
+          "Name": "Address",
+          "Key": "Address",
+          "Placeholder": "Enter Address"
+        },
+        {
+          "Label": "Country",
+          "Key": "CountryId",
+          "Type": "select",
+          "Name": "Country",
+          "Source": "list/Basic/country/all/",
+          "OnChange": {
+            "Name": "Region",
+            "Source": "list/Basic/region/all/",
+            "Response": "Options"
+          },
+          "Required": 0
+        },
+        {
+          "Label": "Region",
+          "Key": "Region",
+          "Name": "Region",
+          "Type": "select",
+          "Disabled": true,
+          "Required": 1
+        },
+        {
+          "Label": "Branch",
+          "Type": "select",
+          "Key": "BranchId",
+          "Name": "Branch",
+          "Source": "list/Manage/Branches/active/",
+          "Required": 1
+        },
+        {
+          "Label": "Department",
+          "Type": "select",
+          "Name": "Department",
+          "Key": "DepartmentId",
+          "Source": "list/Manage/Departments/active/",
+          "OnChange": {
+            "Name": "Position",
+            "Source": "list/Manage/Positions/all/",
+            "Response": "Options"
+          },
+          "OnChange": "new_input('select', 'Position', 'list/Manage/Positions/all/', {department: this.value}, $('option:selected', this).attr('data-Position'),[4,8])",
+          "RelativeDiv": "Position",
+          "Required": 1
+        }
+      ]
+    }
+  }
+]

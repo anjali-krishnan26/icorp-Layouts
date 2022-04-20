@@ -1,0 +1,230 @@
+[
+  {
+    "Size": 12,
+    "Content_Type": "invoice-view",
+    "Content": {
+      "Source": "get/Estimates/Retainer/EstimateData/",
+      "Elements": [
+        {
+          "Size": 12,
+          "Content_Type": "header",
+          "Content": [
+            {
+              "Content_Type": "brand",
+              "Content": {
+                "Source": "get/Manage/BusinessInfo/Logo/",
+                "Height": "60"
+              }
+            },
+            {
+              "Content_Type": "small-elements",
+              "Content": {
+                "Elements": [
+                  {
+                    "Key": "BusinessAddress",
+                    "Source": "get/Manage/BusinessInfo/Address/",
+                    "Type": "text"
+                  }
+                ],
+                "Class": "ms-auto"
+              }
+            }
+          ]
+        },
+        {
+          "Size": 4,
+          "Key": "estimateInvoiceElementOne",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Title": "Customer",
+            "Elements": [
+              {
+                "Key": "EstimateNo",
+                "Type": "text",
+                "Label": "Est No.",
+                "Style": {
+                  "fontWeight": "bold"
+                }
+              },
+              {
+                "Key": "Job",
+                "Type": "text",
+                "Label": "Job No."
+              },
+              {
+                "Key": "SubProduct",
+                "Type": "text",
+                "Label": "JobType"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "estimateInvoiceElementTwo",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "EstimateDate",
+                "Type": "date",
+                "Style": {
+                  "fontWeight": "bold"
+                },
+                "Label": "Date"
+              },
+              {
+                "Key": "JobDate",
+                "Type": "date",
+                "Style": {
+                  "fontWeight": "bold"
+                },
+                "Label": "Date"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "estimateInvoiceElementThree",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "Address",
+                "Type": "text",
+                "Label": "To",
+                "Style": {
+                  "fontWeight": "bold"
+                }
+              },
+              {
+                "Key": "GSTIN",
+                "Type": "text",
+                "Label": "GSTIN"
+              },
+              {
+                "Key": "PANNO",
+                "Type": "text",
+                "Label": "PAN No."
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Key": "estimateInvoiceElementFour",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "Title",
+                "Type": "text",
+                "Label": "Product"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Key": "estimateInvoiceRowOne",
+          "Content_Type": "invoice-rows",
+          "Content": {
+            "Source": "get/Estimates/Retainer/EstimateRows/",
+            "RequestBody": [
+              [
+                "Id",
+                "id"
+              ]
+            ],
+            "Elements": [
+              {
+                "Key": "No",
+                "Label": "Sl. No.",
+                "Width": "50"
+              },
+              {
+                "Key": "Particular",
+                "Label": "Title",
+                "Width": "60%"
+              },
+
+              {
+                "Key": "Net",
+                "Label": "Amount",
+                "Class": "text-right"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 8,
+          "Key": "estimateInvoiceElementFive",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "Remarks",
+                "Type": "remarks",
+                "Label": "Remarks"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Content_Type": "invoice-subtotal",
+          "Content": {
+            "Source": "get/Estimates/Retainer/SubTotal/",
+            "RequestBody": [
+              [
+                "Id",
+                "id"
+              ]
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Content_Type": "button-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Type": "link",
+                "Class": "btn btn-warning",
+                "Link": "/Estimates/Retainer/Edit/?requested={Id}",
+                "Access": [
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Label": "EDIT ESTIMATE"
+              },
+              {
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Estimates/Retainer/Print/?requested={Id}&LetterHead=On&Colour=True",
+                "Target": "_blank",
+                "Label": "PDF WITH LetterHead and Colour"
+              },
+              {
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Estimates/Retainer/Print/?requested={Id}&LetterHead=Off&Colour=False",
+                "Target": "_blank",
+                "Label": "PDF WITHOUT LetterHead"
+              },
+              {
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Estimates/Retainer/Print/?requested={Id}&LetterHead=On&Colour=False",
+                "Target": "_blank",
+                "Label": "PDF B&W"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

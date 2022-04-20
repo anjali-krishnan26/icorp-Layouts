@@ -1,0 +1,248 @@
+[
+  {
+    "Size": 12,
+    "Key": "invoiceRowOne",
+    "Content_Type": "invoice-view",
+    "Content": {
+      "Source": "get/Invoices/InvoiceData/",
+      "Print": "Invoices/Print/",
+      "PrintFilePrefix": "Invoice",
+      "PrintFileCode": "InvoiceNo",
+      "Elements": [
+        {
+          "Size": 12,
+          "Key": "invoiceHeader",
+          "Content_Type": "header",
+          "Content": [
+            {
+              "Key": "invoiceImage",
+              "Content_Type": "brand",
+              "Content": {
+                "Source": "get/Manage/BusinessInfo/Logo/",
+                "Height": "60"
+              }
+            },
+            {
+              "Key": "invoiceSmallElement",
+              "Content_Type": "small-elements",
+              "Content": {
+                "Elements": [
+                  {
+                    "Key": "BusinessAddress",
+                    "Source": "get/Manage/BusinessInfo/Address/",
+                    "Type": "text"
+                  }
+                ],
+                "Class": "ms-auto"
+              }
+            }
+          ]
+        },
+        {
+          "Size": 4,
+          "Key": "InvoiceElementOne",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Title": "Customer",
+            "Elements": [
+              {
+                "Key": "InvoiceNo",
+                "Type": "text",
+                "Label": "Inv No.",
+                "Style": {
+                  "fontWeight": "bold"
+                }
+              },
+              {
+                "Key": "AENo",
+                "Type": "text",
+                "Label": "AENo."
+              },
+              {
+                "Key": "Job",
+                "Type": "text",
+                "Label": "Job No."
+              },
+              {
+                "Key": "SubProduct",
+                "Type": "text",
+                "Label": "JobType"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "InvoiceElementTwo",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "InvoiceDate",
+                "Type": "date",
+                "Style": {
+                  "fontWeight": "bold"
+                },
+                "Label": "Date"
+              },
+              {
+                "Key": "EstimateDate",
+                "Type": "date",
+                "Style": {
+                  "fontWeight": "bold"
+                },
+                "Label": "Date"
+              },
+              {
+                "Key": "JobDate",
+                "Type": "date",
+                "Style": {
+                  "fontWeight": "bold"
+                },
+                "Label": "Date"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "InvoiceElementThree",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "ClientName",
+                "Type": "text",
+                "Label": "To",
+                "Style": {
+                  "fontWeight": "bold"
+                }
+              },
+              {
+                "Key": "ClientAddress",
+                "Type": "text"
+              },
+              {
+                "Key": "GSTIN",
+                "Type": "text",
+                "Label": "GSTIN"
+              },
+              {
+                "Key": "PANNO",
+                "Type": "text",
+                "Label": "PAN No."
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Key": "InvoiceElementFour",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "Title",
+                "Type": "text",
+                "Label": "Product"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Key": "InvoiceRowOne",
+          "Content_Type": "invoice-rows",
+          "Content": {
+            "Source": "get/Invoices/InvoiceRows/",
+            "RequestBody": [
+              [
+                "Id",
+                "id"
+              ]
+            ],
+            "Elements": [
+              {
+                "Key": "No",
+                "Label": "Sl. No.",
+                "Width": "50"
+              },
+              {
+                "Key": "Particular",
+                "Label": "Title",
+                "Width": "60%"
+              },
+              {
+                "Key": "Net",
+                "Label": "Amount",
+                "Class": "text-right"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 4,
+          "Key": "InvoiceElementSubTotal",
+          "Content_Type": "invoice-subtotal",
+          "Content": {
+            "Source": "get/Invoices/SubTotal/",
+            "RequestBody": [
+              [
+                "Id",
+                "id"
+              ]
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Key": "InvoiceElementSix",
+          "Content_Type": "button-elements",
+          "Content": {
+            "Elements": [
+              {
+                "Key": "invoiceEdit",
+                "Type": "link",
+                "Class": "btn btn-warning",
+                "Link": "/Invoices/Edit/{Id}",
+                "Access": [
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Label": "EDIT INVOICE"
+              },
+              {
+                "Key": "estimatePrintOne",
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Invoices/Print/?requested={Id}&LetterHead=On&Colour=True",
+                "Target": "_blank",
+                "PrintFileSuffix": "CR",
+                "Label": "PDF WITH LetterHead and Colour"
+              },
+              {
+                "Key": "estimatePrintTwo",
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Invoices/Print/?requested={Id}&LetterHead=Off&Colour=False",
+                "Target": "_blank",
+                "PrintFileSuffix": "NH",
+                "Label": "PDF WITHOUT LetterHead"
+              },
+              {
+                "Key": "estimatePrintThree",
+                "Type": "link",
+                "Class": "btn btn-primary",
+                "Link": "/Invoices/Print/?requested={Id}&LetterHead=On&Colour=False",
+                "Target": "_blank",
+                "PrintFileSuffix": "BW",
+                "Label": "PDF B&W"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]
