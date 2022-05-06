@@ -162,8 +162,7 @@
                       "value": "",
                       "key": [
                         "multipleForm-ignore",
-                        0,
-                        "Particular[]"
+                        0
                       ]
                     },
                     {
@@ -195,13 +194,11 @@
                   "ResponseFillMultipleForm": [
                     {
                       "value": [
-                        "JobData",
-                        "Particular"
+                        "JobData"
                       ],
                       "key": [
                         "multipleForm-ignore",
-                        0,
-                        "Particular[]"
+                        0
                       ]
                     },
                     {

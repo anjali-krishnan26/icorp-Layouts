@@ -1,0 +1,461 @@
+{
+  "PageStyle": {
+    "fontFamily": "Verdana"
+  },
+  "ColorPageStyle": {
+    "backgroundColor": "rgb(254, 353, 225)"
+  },
+  "Theme": [
+    142,
+    168,
+    61
+  ],
+  "Orientation": "portrait",
+  "BusinessInfo": "get/Manage/BusinessInfo/Details/",
+  "ColourLogo": "get/Manage/BusinessInfo/PortraitColourLogo/",
+  "BWLogo": "get/Manage/BusinessInfo/PortraitBWLogo/",
+  "LetterHead": "Custom",
+  "Font": "get/Manage/BusinessInfo/Font/",
+  "Data": "get/Invoices/InvoiceData/",
+  "DocNo": "InvoiceNo",
+  "Logo": {
+    "Style": {
+      "marginBottom": "1mm"
+    }
+  },
+  "PageContent": {
+    "Style": {
+      "paddingTop": "5mm"
+    }
+  },
+  "PageTitle": {
+    "Style": {
+      "fontFamily": "Verdana",
+      "fontSize": "16px",
+      "fontWeight": 700,
+      "textAlign": "center",
+      "textTransform": "uppercase",
+      "paddingBottom": "2.5mm"
+    }
+  },
+  "LHData": [
+    {
+      "Element": "Details1",
+      "Style": {
+        "color": "rgb(110, 111, 114)",
+        "fontSize": "3.15mm",
+        "paddingTop": "1.5mm",
+        "fontFamily": "Weisch"
+      }
+    },
+    {
+      "Element": "Details2",
+      "Style": {
+        "color": "rgb(110, 111, 114)",
+        "fontSize": "3.15mm",
+        "paddingTop": "1.5mm",
+        "fontFamily": "Weisch"
+      }
+    }
+  ],
+  "Footer": [
+    {
+      "Label": "A Stark Group Company",
+      "Style": {
+        "fontSize": 10,
+        "color": "rgb(110, 111, 114)",
+        "position": "absolute",
+        "right": "13mm",
+        "bottom": "13mm"
+      }
+    }
+  ],
+  "ParticularHeader": {
+    "Type": "data",
+    "Key": "Header",
+    "Style": {
+      "padding": "1mm 30mm 1mm 19mm"
+    }
+  },
+  "Header": {
+    "Spacing": 0,
+    "Padding": 3,
+    "Type": "fixed-table",
+    "Subject": [
+      {
+        "Type": "text",
+        "Value": "Product : ",
+        "Style": {
+          "width": "20mm"
+        }
+      },
+      {
+        "Type": "data",
+        "Key": "Title"
+      }
+    ],
+    "Columns": [
+      [
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "Inv No. :"
+          },
+          {
+            "Type": "data",
+            "Key": "InvoiceNo",
+            "Style": {
+              "width": "30mm",
+              "fontWeight": 700
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "AE No. :"
+          },
+          {
+            "Type": "data",
+            "Key": "AENo",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "Job No. :"
+          },
+          {
+            "Type": "data",
+            "Key": "Job",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "Job Type :"
+          },
+          {
+            "Type": "data",
+            "Key": "SubProduct",
+            "Width": "30mm"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "Type": "text",
+            "Value": "Date :",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "InvoiceDate",
+            "Style": {
+              "width": "30mm",
+              "fontWeight": 700
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "Date :",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "EstimateDate",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "Date :",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "JobDate",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "asd",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "asd",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "Type": "text",
+            "Value": "To,",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "data",
+            "Key": [
+              "ClientName",
+              "_br",
+              "ClientAddress"
+            ],
+            "Style": {
+              "width": "60mm",
+              "fontWeight": 700
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "GSTIN: ",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "data",
+            "Key": "GSTIN",
+            "Style": {
+              "width": "60mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "PAN No: ",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "data",
+            "Key": "PANNO",
+            "Style": {
+              "width": "60mm"
+            }
+          }
+        ]
+      ]
+    ]
+  },
+  "Particulars": {
+    "Source": "get/Invoices/InvoiceRows/",
+    "Style": "font-size:10; width:180mm;",
+    "ContentStyle": {},
+    "Padding": 3,
+    "Type": "dynamic-table",
+    "HeadStyle": {
+      "display": "flex",
+      "flexDirection": "row",
+      "paddingHorizontal": "1mm",
+      "paddingVertical": "1.2mm",
+      "border": "1px solid rgb(0, 0, 0)",
+      "borderLeft": "none",
+      "borderRight": "none",
+      "color": "rgb(0, 0, 0)"
+    },
+    "ColorHeadStyle": {
+      "backgroundColor": "rgb(142, 168, 61)",
+      "color": "rgb(255, 255, 255)",
+      "border": "none"
+    },
+    "Elements": [
+      {
+        "Type": "data",
+        "Label": "Sl. No.",
+        "Key": "No",
+        "Style": {
+          "width": "20mm"
+        }
+      },
+      {
+        "Type": "data",
+        "Label": "Description",
+        "Key": "Particular",
+        "Style": {
+          "paddingLeft": "20mm",
+          "paddingRight": "30mm"
+        }
+      },
+      {
+        "Type": "product",
+        "Key": "Product",
+        "Label": "Product",
+        "Path": "get/Estimates/Media/RowTitles/",
+        "PathRequestKey": [
+          [
+            "Product",
+            "ProductId"
+          ]
+        ],
+        "Style": {
+          "width": "30mm"
+        }
+      },
+      {
+        "Type": "amount",
+        "Label": "Amount (INR)",
+        "Key": "Net",
+        "IsNumber": true,
+        "Style": {
+          "width": "30mm",
+          "textAlign": "right"
+        }
+      }
+    ]
+  },
+  "SubTotal": {
+    "Source": "get/Invoices/SubTotal/",
+    "Style": "border-bottom:2px solid #AAAAAA; border-top:2px solid rgb( 142,168,61); width:180mm; font-size:8;width:50%",
+    "Spacing": 0,
+    "Padding": 3,
+    "Type": "subtotal-table",
+    "Columns": [
+      [],
+      [
+        {
+          "Type": "numberInWords",
+          "Key": "total",
+          "Prefix": "Amount in Words",
+          "Style": {
+            "width": "100mm"
+          }
+        }
+      ]
+    ]
+  },
+  "Content": {
+    "Spacing": 0,
+    "Padding": 5,
+    "Style": {
+      "borderBottom": "2px solid rgb(0, 0, 0)"
+    },
+    "ColorStyle": {
+      "borderBottom": "2px solid rgb(142, 168, 61)"
+    },
+    "Type": "fixed-table",
+    "Signatories": [
+      {
+        "Type": "text",
+        "Value": "Authorized Signatory"
+      },
+      {
+        "Type": "text",
+        "Value": "AE"
+      },
+      {
+        "Type": "text",
+        "Value": "AS"
+      }
+    ],
+    "SignatoriesStyle": {
+      "paddingTop": "18mm",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-around"
+    },
+    "SignatureSection": [
+      {
+        "Type": "text",
+        "Value": "E & OE",
+        "Style": {
+          "paddingTop": "13mm"
+        }
+      }
+    ],
+    "SignatureSectionStyle": {
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "paddingBottom": "3mm",
+      "borderBottom": "2px solid #AAAAAA"
+    },
+    "Footer": [
+      {
+        "Type": "richText",
+        "Style": {
+          "width": "100mm",
+          "paddingRight": "2mm",
+          "paddingVertical": "2mm"
+        },
+        "Value": "1. TDS should be deducted @2% on the bill amount <br /> (excluding GST) under section 194C of Income Tax Act,1961.<br />2. Payment should be by crossed a/c payee cheque/demand draft<br />in favour of Stark Communications Pvt Ltd <br /> payable at Thiruvananthapuram or by RTGS/NEFT to <br /> Union Bank of India, Vellayambalam Branch,<br /> Thiruvananthapuram"
+      },
+      {
+        "Type": "richText",
+        "Style": {
+          "width": "85mm",
+          "paddingRight": "2mm",
+          "paddingVertical": "2mm"
+        },
+        "Value": "Account Name: Stark Communications Pvt Ltd<br>Bank: Union Bank of India<br>Branch: Vellayambalam Branch<br>Account No: 560261000000323<br>IFSC: UBIN0905470<br>Swift code: UBININBBERM"
+      }
+    ],
+    "FooterStyles": {
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between"
+    }
+  }
+}

@@ -152,18 +152,17 @@
                     "Title",
                     "ClientName",
                     "Id",
-                    "Address",
-                    "JobId[]",
                     "GSTIN",
-                    "PANNO"
+                    "JobId[]",
+                    "PANNO",
+                    "Address"
                   ],
                   "rowData": [
                     {
                       "value": "",
                       "key": [
                         "multipleForm-ignore",
-                        0,
-                        "Particular[]"
+                        0
                       ]
                     },
                     {
@@ -195,13 +194,11 @@
                   "ResponseFillMultipleForm": [
                     {
                       "value": [
-                        "JobData",
-                        "Particular"
+                        "JobData"
                       ],
                       "key": [
                         "multipleForm-ignore",
-                        0,
-                        "Particular[]"
+                        0
                       ]
                     },
                     {
@@ -275,6 +272,13 @@
                 "Placeholder": "Enter the job title",
                 "Type": "text",
                 "Required": 1
+              },
+              {
+                "Label": "Header",
+                "Name": "Header",
+                "Key": "Header",
+                "Placeholder": "Enter the header",
+                "Type": "textarea"
               }
             ]
           }
@@ -315,6 +319,7 @@
                       {
                         "Label": "Sub Product",
                         "Type": "select",
+                        "SelectDisabled": true,
                         "Name": "Product[]",
                         "Class": "Product",
                         "Source": "get/Estimates/Shoot/SubProducts/",
@@ -326,7 +331,7 @@
                           "Product[]"
                         ],
                         "OnChange": {
-                          "Name": "SubProduct",
+                          "Name": "Sub Product",
                           "Source": "get/Estimates/Shoot/ProductParameters/",
                           "SourceRequestBody": [
                             [
@@ -475,6 +480,34 @@
                 "Disabled": true,
                 "Key": "Total",
                 "Default": "0"
+              },
+              {
+                "Label": "TotalCosting",
+                "Type": "hidden",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "TotalCosting",
+                "Disabled": true,
+                "Key": "TotalCosting",
+                "Default": "0",
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
               },
               {
                 "Label": "Discount",

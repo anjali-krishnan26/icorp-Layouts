@@ -1,0 +1,480 @@
+{
+  "PageStyle": {
+    "fontFamily": "Verdana"
+  },
+  "ColorPageStyle": {
+    "backgroundColor": "rgb(254, 353, 225)"
+  },
+  "Theme": [
+    142,
+    168,
+    61
+  ],
+  "Orientation": "landscape",
+  "BusinessInfo": "get/Manage/BusinessInfo/Details/",
+  "ColourLogo": "get/Manage/BusinessInfo/LandscapeColourLogo/",
+  "BWLogo": "get/Manage/BusinessInfo/LandscapeBWLogo/",
+  "LetterHead": "Custom",
+  "Font": "get/Manage/BusinessInfo/Font/",
+  "Data": "get/Orders/Release/OrderData/",
+  "DocNo": "OrderNo",
+  "Logo": {
+    "Style": {
+      "marginBottom": "1mm"
+    }
+  },
+  "PageTitle": {
+    "Style": {
+      "fontFamily": "Verdana",
+      "fontSize": "16px",
+      "fontWeight": 700,
+      "textAlign": "center",
+      "textTransform": "uppercase",
+      "paddingBottom": "2.5mm"
+    }
+  },
+  "LHData": [
+    {
+      "Element": "Details1",
+      "Style": {
+        "color": "rgb(110, 111, 114)",
+        "fontSize": "3.15mm",
+        "paddingTop": "1.5mm",
+        "fontFamily": "Weisch"
+      }
+    },
+    {
+      "Element": "Details2",
+      "Style": {
+        "color": "rgb(110, 111, 114)",
+        "fontSize": "3.15mm",
+        "paddingTop": "1.5mm",
+        "fontFamily": "Weisch"
+      }
+    }
+  ],
+  "Footer": [
+    {
+      "Label": "A Stark Group Company",
+      "Style": {
+        "fontSize": 10,
+        "color": "rgb(110, 111, 114)",
+        "position": "absolute",
+        "right": "13mm",
+        "bottom": "13mm"
+      }
+    }
+  ],
+  "Header": {
+    "Spacing": 0,
+    "Padding": 3,
+    "Type": "fixed-table",
+    "Subject": [
+      {
+        "Type": "text",
+        "Value": "Product : ",
+        "Style": {
+          "width": "20mm"
+        }
+      },
+      {
+        "Type": "data",
+        "Key": "Title"
+      }
+    ],
+    "Columns": [
+      [
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "Order No. :"
+          },
+          {
+            "Type": "data",
+            "Key": "OrderNo",
+            "Style": {
+              "width": "30mm",
+              "fontWeight": 700
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "AE No. :"
+          },
+          {
+            "Type": "data",
+            "Key": "AENo",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "Job No. :"
+          },
+          {
+            "Type": "data",
+            "Key": "Job",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "Job Type :"
+          },
+          {
+            "Type": "data",
+            "Key": "SubProduct",
+            "Width": "30mm"
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Style": {
+              "width": "20mm"
+            },
+            "Value": "Client Name :"
+          },
+          {
+            "Type": "data",
+            "Key": "ClientName",
+            "Width": "30mm"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "Type": "text",
+            "Value": "Date :",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "OrderDate",
+            "Style": {
+              "width": "30mm",
+              "fontWeight": 700
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "Date :",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "EstimateDate",
+            "Style": {
+              "width": "30mm",
+              "fontWeight": 700
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "Date :",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "date",
+            "Key": "JobDate",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "text",
+            "Value": " ",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "text",
+            "Value": " ",
+            "Style": {
+              "width": "30mm"
+            }
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "Type": "text",
+            "Value": "To:",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "data",
+            "Key": [
+              "SupplierName",
+              "_br",
+              "SupplierAddress"
+            ],
+            "Style": {
+              "width": "60mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "GSTIN: ",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "data",
+            "Key": "GSTIN",
+            "Style": {
+              "width": "60mm"
+            }
+          }
+        ],
+        [
+          {
+            "Type": "text",
+            "Value": "PAN No.: ",
+            "Style": {
+              "width": "20mm"
+            }
+          },
+          {
+            "Type": "data",
+            "Key": "PANNO",
+            "Style": {
+              "width": "60mm"
+            }
+          }
+        ]
+      ]
+    ]
+  },
+  "Particulars": {
+    "Source": "get/Orders/Release/OrderRows/",
+    "showDescriptionRow": true,
+    "Style": "font-size:8; width:180mm;",
+    "ContentStyle": {
+      "minHeight": "35mm"
+    },
+    "Padding": 3,
+    "Type": "dynamic-table",
+    "HeadStyle": {
+      "display": "flex",
+      "flexDirection": "row",
+      "paddingHorizontal": "1mm",
+      "paddingVertical": "1.2mm",
+      "backgroundColor": "rgb(0, 0, 0)",
+      "color": "rgb(255, 255, 255)"
+    },
+    "ColorHeadStyle": {
+      "backgroundColor": "rgb(142, 168, 61)"
+    },
+    "Elements": [
+      {
+        "Type": "data",
+        "Label": "Sl. No.",
+        "Key": "No",
+        "Style": {
+          "width": "20mm"
+        }
+      },
+      {
+        "Type": "data",
+        "Label": "Description",
+        "Key": "Particular",
+        "Style": {
+          "paddingLeft": "20mm",
+          "paddingRight": "30mm"
+        }
+      },
+      {
+        "Type": "product",
+        "Key": "Product",
+        "Label": "Product",
+        "Path": "get/Estimates/Media/RowTitles/",
+        "PathRequestKey": [
+          [
+            "Product",
+            "ProductId"
+          ]
+        ],
+        "Style": {
+          "width": "30mm"
+        }
+      },
+      {
+        "Type": "amount",
+        "Label": "Amount (₹)",
+        "Key": "Net",
+        "Style": {
+          "width": "30mm",
+          "textAlign": "right"
+        }
+      }
+    ]
+  },
+  "SubTotal": {
+    "Source": "get/Orders/Release/SubTotal/",
+    "Style": "border-bottom:2px solid #AAAAAA; border-top:2px solid rgb( 142,168,61); width:180mm; font-size:8;width:50%",
+    "Spacing": 0,
+    "Padding": 3,
+    "Type": "subtotal-table",
+    "Columns": [
+      [
+        {
+          "Type": "text",
+          "Value": "Remarks: ",
+          "Style": {
+            "width": "20mm"
+          }
+        },
+        {
+          "Type": "richText",
+          "Key": "Remarks",
+          "Style": {
+            "width": "100mm"
+          }
+        }
+      ],
+      [
+        {
+          "Type": "numberInWords",
+          "Key": "total",
+          "Prefix": "Amount in Words",
+          "Style": {
+            "width": "100mm"
+          }
+        }
+      ]
+    ]
+  },
+  "Content": {
+    "Spacing": 0,
+    "Padding": 5,
+    "Style": {
+      "borderBottom": "2px solid rgb(0, 0, 0)"
+    },
+    "ColorStyle": {
+      "borderBottom": "2px solid rgb(142, 168, 61)"
+    },
+    "Type": "fixed-table",
+    "Signatories": [
+      {
+        "Type": "text",
+        "Value": "Authorized Signatory"
+      }
+    ],
+    "SignatoriesStyle": {
+      "paddingTop": "18mm",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-around"
+    },
+    "SignatureSection": [
+      {
+        "Type": "text",
+        "Value": "E & OE",
+        "Style": {
+          "paddingTop": "13mm"
+        }
+      },
+      {
+        "Type": "array",
+        "Value": [
+          "Signature: ",
+          "Name: ",
+          "Date: "
+        ],
+        "Style": {
+          "paddingTop": "2mm",
+          "width": "50mm"
+        }
+      }
+    ],
+    "SignatureSectionStyle": {
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "paddingBottom": "3mm",
+      "borderBottom": "2px solid #AAAAAA"
+    },
+    "Footer": [
+      {
+        "Type": "richText",
+        "Style": {
+          "width": "100mm",
+          "paddingRight": "2mm",
+          "paddingVertical": "2mm"
+        },
+        "Value": "Payment Terms:<br />1. This document is valid only for a period of 30 days<br>2. Part payment/advance, if any, should be by crossed a/c payee cheque/demand draft in favour of Stark Communications Pvt Ltd <br />payable at Thiruvananthapuram or by RTGS/NEFT"
+      },
+      {
+        "Type": "richText",
+        "Style": {
+          "width": "85mm",
+          "paddingRight": "2mm",
+          "paddingVertical": "2mm"
+        },
+        "Value": "Account Name: Stark Communications Pvt Ltd<br>Bank: Union Bank of India<br>Branch: Vellayambalam Branch<br>Account No: 560261000000323<br>IFSC: UBIN0905470<br>Swift code: UBININBBERM"
+      }
+    ],
+    "FooterStyles": {
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between"
+    }
+  }
+}

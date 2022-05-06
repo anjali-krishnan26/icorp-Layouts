@@ -43,7 +43,6 @@
                     "Label": "Date",
                     "Key": "InvoiceDate",
                     "Name": "InvoiceDate",
-                    "Default": "Today",
                     "Required": 1,
                     "Placeholder": "Invoice Date"
                   }
@@ -71,7 +70,7 @@
                   ]
                 ],
                 "OnChangeFill": [
-                  "Id",
+                  "ClientId",
                   "Address",
                   "GSTIN",
                   "PanNO"
@@ -89,6 +88,11 @@
                 "Type": "hidden",
                 "Name": "Id",
                 "Key": "Id"
+              },
+              {
+                "Type": "hidden",
+                "Name": "ClientId",
+                "Key": "ClientId"
               },
               {
                 "Label": "Address",
@@ -124,15 +128,6 @@
                 "Placeholder": "Enter PAN",
                 "Required": 0,
                 "Disabled": true
-              },
-              {
-                "Label": "Due Date",
-                "Type": "date",
-                "Name": "DueDate",
-                "Default": "+15 Days",
-                "Placeholder": "",
-                "Required": 0,
-                "Key": "DueDate"
               }
             ]
           }
@@ -262,7 +257,7 @@
                     {
                       "Id": [
                         "ClientData",
-                        "_id"
+                        "Id"
                       ]
                     },
                     {
@@ -324,6 +319,24 @@
         {
           "Size": 12,
           "Content_Type": "form-elements",
+          "Key": "formElementSix",
+          "Content": {
+            "Elements": [
+              {
+                "Label": "Header",
+                "Name": "Header",
+                "Key": "Header",
+                "Placeholder": "Enter the job header",
+                "Type": "text",
+                "Required": 0,
+                "Default": "Cost of releasing the advertisements"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Content_Type": "form-elements",
           "Key": "formElementFive",
           "Content": {
             "Elements": [
@@ -361,6 +374,14 @@
                         "Class": "Product",
                         "SelectDisabled": true,
                         "Source": "get/Invoices/SubProducts/",
+                        "SourceRequestBody": [
+                          [
+                            "Product",
+                            [
+                              "Category"
+                            ]
+                          ]
+                        ],
                         "copyInitialValues": [
                           "multipleForm-ignore",
                           0,
@@ -386,6 +407,10 @@
                     ]
                   },
                   {
+                    "Type": "measurements",
+                    "Label": "Measurements"
+                  },
+                  {
                     "Label": "Rate",
                     "Type": "text",
                     "Name": "Rate[]",
@@ -394,10 +419,12 @@
                     "OnChange": {
                       "Calculate": {
                         "data": [
-                          "Rate[]"
+                          "Rate[]",
+                          "Qty"
                         ],
                         "Operators": [
-                          "add"
+                          "add",
+                          "multiply"
                         ],
                         "resultFill": "Net[]"
                       }
@@ -516,11 +543,16 @@
                 "Type": "Tax",
                 "Key": "Tax",
                 "Name": "Tax-Ignore",
-                "Source": "get/Estimates/Creative/Tax/",
+                "Source": "get/Invoices/Tax/",
                 "SourceRequestBody": [
                   [
                     "Client",
-                    "Id"
+                    "Id",
+                    "formData"
+                  ],
+                  [
+                    "Category",
+                    "Category"
                   ]
                 ],
                 "BaseValues": [
