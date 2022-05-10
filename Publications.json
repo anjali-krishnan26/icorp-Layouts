@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/Publications/custom/",
+            "List": "Publications",
+            "ListClass": "data-table",
+            "Title": "Publication List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Publication",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Publications','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/Publications/Create/",
+                "Path": "create/Masters/Publications/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

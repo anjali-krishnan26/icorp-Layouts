@@ -1,0 +1,24 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Manage/Currencies/all/",
+            "List": "Currencies",
+            "ListClass": "data-table",
+            "Title": "More means split of tasks",
+            "THead": [
+              "Country",
+              "Currency",
+              "Symbol"
+            ],
+            "Buttons": []
+          }
+        }
+      ]
+    }
+  ]

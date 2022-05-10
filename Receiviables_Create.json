@@ -1,0 +1,213 @@
+[
+    {
+      "Size": 12,
+      "Key": "transactionRow",
+      "Content_Type": "invoice",
+      "Content": {
+        "Path": "create/Transactions/Receipts/",
+        "Button": "SAVE TRANSACTION",
+        "OnSuccess": "/Transactions/Receipts",
+        "Elements": [
+          {
+            "Size": 12,
+            "Key": "headerOne",
+            "Content_Type": "header-form",
+            "Content": [
+              {
+                "Content_Type": "brand",
+                "Key": "imageOne",
+                "Content": {
+                  "Source": "get/Manage/BusinessInfo/Logo/",
+                  "Height": "60"
+                }
+              },
+              {
+                "Content_Type": "small-form-elements",
+                "Key": "smallFormElementOne",
+                "Content": {
+                  "Elements": [
+                    {
+                      "Type": "date",
+                      "Label": "Date",
+                      "Key": "ReceiptDate",
+                      "Name": "ReceiptDate",
+                      "Default": "Today",
+                      "Required": 1,
+                      "Placeholder": "Receipt Date"
+                    }
+                  ],
+                  "Class": "ms-auto"
+                }
+              }
+            ]
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementOne",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Client Details",
+                  "Type": "async-select",
+                  "Name": "ClientName",
+                  "Source": "get/Masters/Clients/searchEntity/",
+                  "SourceRequestBody": [
+                    [
+                      "term",
+                      ""
+                    ]
+                  ],
+                  "OnChangeFill": [
+                    "Id",
+                    "ClientAddress",
+                    "GSTIN"
+                  ],
+                  "Get": [
+                    "Tax"
+                  ],
+                  "hasDefaultOptions": true,
+                  "Placeholder": "Enter Client Name",
+                  "OnChange": "TaxInputGenerate('subtotal_tax',{'Client': $('#Id').val()})",
+                  "Required": 1,
+                  "Key": "Client Details"
+                },
+                {
+                  "Type": "hidden",
+                  "Name": "Id",
+                  "Key": "Id"
+                },
+                {
+                  "Label": "Address",
+                  "Type": "textarea",
+                  "Name": "ClientAddress",
+                  "Placeholder": "Enter Office Address",
+                  "Required": 0,
+                  "Key": "Address"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementTwo",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "GSTIN",
+                  "Type": "text",
+                  "Key": "GSTIN",
+                  "Name": "GSTIN",
+                  "Placeholder": "Enter GSTIN",
+                  "Required": 0,
+                  "Disabled": true
+                },
+                {
+                  "Label": "TDS",
+                  "Type": "text",
+                  "Key": "TDS",
+                  "Name": "TDS",
+                  "Placeholder": "Enter TDS",
+                  "Required": 0
+                },
+                {
+                  "Label": "Other Deduction",
+                  "Type": "text",
+                  "Key": "OtherDeduction",
+                  "Name": "OtherDeduction",
+                  "Placeholder": "Other Deduction",
+                  "Required": 0
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementThree",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Receipt No. #",
+                  "Type": "text",
+                  "Source": "get/Transactions/Receipts/NewReceiptNumber/",
+                  "Name": "ReceiptNo",
+                  "Placeholder": "Receipt Number",
+                  "Required": 1,
+                  "Key": "ReceiptNo"
+                },
+                {
+                  "Label": "Invoice No.",
+                  "Type": "async-select",
+                  "SelectLimit": 1,
+                  "Name": "InvoiceId",
+                  "Source": "get/Transactions/Receivables/InvoiceToReceipt/",
+                  "SourceRequestBody": [
+                    [
+                      "term",
+                      ""
+                    ]
+                  ],
+                  "OnChangeFill": [
+                    "label",
+                    "Receivable",
+                    "ClientName",
+                    "ClientAddress",
+                    "GSTIN",
+                    "PaymentType"
+                  ],
+                  "OnChangeSum": [
+                    [
+                      "Receivable",
+                      "Receivable"
+                    ]
+                  ],
+                  "OnClear": {
+                    "data": [
+                      "label",
+                      "Receivable",
+                      "ClientName",
+                      "ClientAddress",
+                      "GSTIN",
+                      "PaymentType"
+                    ]
+                  }
+                },
+                {
+                  "Label": "Type Of Payment",
+                  "Type": "text",
+                  "Name": "PaymentType",
+                  "Placeholder": "TypeOfPayment",
+                  "Key": "TypeOfPayment"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementThree",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Received Amount",
+                  "Type": "text",
+                  "Name": "ReceivedAmount",
+                  "Placeholder": "Received Amount",
+                  "Key": "Amount"
+                },
+                {
+                  "Label": "Receivable Amount",
+                  "Type": "text",
+                  "Name": "Receivable",
+                  "Placeholder": "Receivable Amount",
+                  "Key": "Amount"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]

@@ -1,0 +1,144 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 4,
+          "Content_Type": "data",
+          "Content": {
+            "Title": "Website Details",
+            "Path": "get/Masters/Websites/",
+            "Split": [
+              4,
+              8
+            ],
+            "Elements": [
+              {
+                "Type": "p",
+                "Label": "Name",
+                "Key": "Name"
+              },
+              {
+                "Type": "p",
+                "Label": "Supplier Code",
+                "Key": "Code"
+              },
+              {
+                "Type": "p",
+                "Label": "Address",
+                "Key": "Address"
+              },
+              {
+                "Type": "p",
+                "Label": "City",
+                "Key": "City"
+              },
+              {
+                "Type": "p",
+                "Label": "State",
+                "Key": "Region"
+              },
+              {
+                "Type": "p",
+                "Label": "Country",
+                "Key": "Country"
+              },
+              {
+                "Type": "p",
+                "Label": "Phone",
+                "Key": "Phone"
+              },
+              {
+                "Type": "p",
+                "Label": "Email",
+                "Key": "Email"
+              },
+              {
+                "Type": "p",
+                "Label": "GSTIN",
+                "Key": "GSTIN"
+              },
+              {
+                "Type": "p",
+                "Label": "Credit Allowed",
+                "Key": "Credit"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 8,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "get/Masters/Websites/Contacts/",
+            "RequestBody": {
+              "Id": "Id"
+            },
+            "ResponseData": "Contacts",
+            "List": "Contacts",
+            "ListClass": "data-table",
+            "Title": "Contacts",
+            "THead": [
+              "Name",
+              "Designation",
+              "Email",
+              "Mobile",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Contact",
+                "Access": [
+                  "rwea0",
+                  "rwe00",
+                  "rw000",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Contact','modal')"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "get/Job/Websites/",
+            "RequestBody": {
+              "Id": "Id"
+            },
+            "List": "Jobs",
+            "ListClass": "data-table",
+            "Title": "Orders",
+            "THead": [
+              "OrderNo",
+              "Title",
+              "Job",
+              "Payable",
+              "Paid",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Job",
+                "Access": [
+                  "rwea0",
+                  "rwe00",
+                  "rw000",
+                  "rwead"
+                ],
+                "Function": "add('Job','','modal')"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

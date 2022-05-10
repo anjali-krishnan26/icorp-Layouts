@@ -1,0 +1,43 @@
+[
+    {
+      "Size": 12,
+      "Key": "staffsLayout",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "staffsLayout",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Manage/Staffs/custom/",
+            "List": "Staffs",
+            "ListClass": "data-table",
+            "Title": "More means growth",
+            "THead": [
+              "Name",
+              "Phone",
+              "Branch",
+              "Department",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Staff",
+                "Access": [
+                  "rwea0",
+                  "rwe00",
+                  "rw000",
+                  "rwead"
+                ],
+                "Function": "add('Manage','Staffs','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "/Manage/Staffs/Create/",
+                "Path": "create/Manage/Staffs/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,48 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "data",
+      "Content": {
+        "Path": "get/Manage/Departments/",
+        "Title": "Department",
+        "Split": [
+          4,
+          8
+        ],
+        "Elements": [
+          {
+            "Type": "p",
+            "Label": "Name",
+            "Key": "Department"
+          },
+          {
+            "Type": "p",
+            "Label": "Description",
+            "Key": "Description"
+          },
+          {
+            "Type": "p",
+            "Label": "Phone",
+            "Key": "Phone"
+          },
+          {
+            "Type": "p",
+            "Label": "Email",
+            "Key": "Email"
+          }
+        ]
+      }
+    },
+    {
+      "Size": 12,
+      "Content_Type": "component",
+      "Content": {
+        "Component": "Data",
+        "Name": "DepartmentAccessData",
+        "Request": [
+          "Id"
+        ],
+        "Path": "layout/Components/Data/AccessData/"
+      }
+    }
+  ]

@@ -1,0 +1,58 @@
+[
+    {
+      "Size": 12,
+      "Key": "pluginWrapper-1",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 6,
+          "Key": "PayableList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Transactions/Payables/all/",
+            "List": "Payables",
+            "ListClass": "data-table",
+            "Title": "Payable List",
+            "THead": [
+              "#",
+              "OrderNo",
+              "Supplier",
+              "OrderDate",
+              "Payable"
+            ]
+          }
+        },
+        {
+          "Size": 6,
+          "Key": "VouchersList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Transactions/Vouchers/all/",
+            "List": "Vouchers",
+            "ListClass": "data-table",
+            "Title": "Vouchers List",
+            "THead": [
+              "#",
+              "OrderNo",
+              "VoucherNo",
+              "VoucherDate",
+              "VoucherAmount"
+            ],
+            "Buttons": [
+              {
+                "Button": "Create Voucher",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "goto('/Transactions/Payables/Create/')",
+                "RedirectTo": "Transactions/Payables/Create"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

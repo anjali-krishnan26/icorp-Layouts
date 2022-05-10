@@ -1,0 +1,48 @@
+[
+    {
+      "Size": 12,
+      "Key": "jobLayout",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "jobList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Job/custom/",
+            "List": "Job",
+            "ListClass": "data-table",
+            "Title": "Jobs List",
+            "THead": [
+              "#",
+              "JobCode",
+              "Client",
+              "Category",
+              "Title",
+              "Status",
+              "Created",
+              "CreatedBy",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Job",
+                "Access": [
+                  "rw0a0",
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Job','','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "/Job/Create/",
+                "Path": "create/Job/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

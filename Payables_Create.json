@@ -1,0 +1,133 @@
+[
+    {
+      "Size": 12,
+      "Key": "invoiceRow",
+      "Content_Type": "invoice",
+      "Content": {
+        "Path": "create/Transactions/Payables/",
+        "Button": "SAVE TRANSACTION",
+        "OnSuccess": "/Transactions/Payables",
+        "Elements": [
+          {
+            "Size": 12,
+            "Key": "headerOne",
+            "Content_Type": "header-form",
+            "Content": [
+              {
+                "Content_Type": "brand",
+                "Key": "imageOne",
+                "Content": {
+                  "Source": "get/Manage/BusinessInfo/Logo/",
+                  "Height": "60"
+                }
+              },
+              {
+                "Content_Type": "small-form-elements",
+                "Key": "smallFormElementOne",
+                "Content": {
+                  "Elements": [
+                    {
+                      "Label": "Voucher No. #",
+                      "Type": "text",
+                      "Source": "get/Transactions/Vouchers/NewVoucherNumber/",
+                      "Name": "VoucherNo",
+                      "Placeholder": "Voucher Number",
+                      "Required": 1,
+                      "Key": "VoucherNo"
+                    }
+                  ],
+                  "Class": "ms-auto"
+                }
+              }
+            ]
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementOne",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Supplier Details",
+                  "Type": "async-select",
+                  "Name": "SupplierName",
+                  "Source": "get/Masters/Suppliers/searchEntity/",
+                  "SourceRequestBody": [
+                    [
+                      "term",
+                      ""
+                    ]
+                  ],
+                  "OnChangeFill": [
+                    "Id",
+                    "Address",
+                    "GSTIN"
+                  ],
+                  "Get": [
+                    "Tax"
+                  ],
+                  "hasDefaultOptions": false,
+                  "Placeholder": "Enter Supplier Name",
+                  "OnChange": "TaxInputGenerate('subtotal_tax',{'Supplier': $('#Id').val()})",
+                  "Required": 1,
+                  "Key": "Supplier Details"
+                },
+                {
+                  "Type": "hidden",
+                  "Name": "Id",
+                  "Key": "Id"
+                },
+                {
+                  "Label": "Address",
+                  "Type": "textarea",
+                  "Name": "Address",
+                  "Placeholder": "Enter Office Address",
+                  "Required": 0,
+                  "Key": "Address"
+                },
+                {
+                  "Label": "GSTIN",
+                  "Type": "text",
+                  "Key": "GSTIN",
+                  "Name": "GSTIN",
+                  "Placeholder": "Enter GSTIN",
+                  "Required": 0,
+                  "Disabled": true
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Order No. #",
+                  "Type": "select",
+                  "IsMulti": "true",
+                  "SelectLimit": 1,
+                  "Name": "OrderId[]",
+                  "Source": "get/Transactions/Payables/OrderToVoucher/"
+                },
+                {
+                  "Label": "Amount",
+                  "Type": "text",
+                  "Name": "Amount",
+                  "Placeholder": "Payable Amount",
+                  "Key": "Amount"
+                },
+                {
+                  "Label": "DeadLine",
+                  "Type": "text",
+                  "Name": "DeadLine",
+                  "Placeholder": "Amount DeadLine",
+                  "Key": "DeadLine"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]

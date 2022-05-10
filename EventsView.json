@@ -83,9 +83,6 @@
               {
                 "Key": "JobDate",
                 "Type": "date",
-                "Style": {
-                  "fontWeight": "bold"
-                },
                 "Label": "Date"
               }
             ]
@@ -152,13 +149,14 @@
               },
               {
                 "Key": "Particular",
-                "Label": "Description",
+                "Label": "Title",
                 "Width": "60%"
               },
               {
                 "Key": "Net",
                 "Label": "Amount",
-                "Class": "text-right"
+                "Class": "text-right",
+                "IsNumber": true
               }
             ]
           }
@@ -201,7 +199,7 @@
                 "Key": "estimateEdit",
                 "Type": "link",
                 "Class": "btn btn-warning",
-                "Link": "/Estimates/Events/Edit/?requested={Id}",
+                "Link": "/Estimates/Events/Edit/{Id}",
                 "Access": [
                   "rwe00",
                   "rwea0",

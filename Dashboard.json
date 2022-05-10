@@ -1,0 +1,17 @@
+[
+    {
+      "Size": 12,
+      "Key": "pluginWrapper-1",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "plugin-1",
+          "Content_Type": "plugin",
+          "Content": {
+            "Source": "/get/Dashboard/GetDashboard/"
+          }
+        }
+      ]
+    }
+]

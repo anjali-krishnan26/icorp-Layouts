@@ -1,15 +1,21 @@
 [
   {
     "Size": 12,
+    "Key": "estimateRowOne",
     "Content_Type": "invoice-view",
     "Content": {
       "Source": "get/Estimates/Project/EstimateData/",
+      "Print": "Estimates/Project/Print/",
+      "PrintFilePrefix": "Project_Estimate",
+      "PrintFileCode": "EstimateNo",
       "Elements": [
         {
           "Size": 12,
+          "Key": "estimateHeader",
           "Content_Type": "header",
           "Content": [
             {
+              "Key": "estimateImage",
               "Content_Type": "brand",
               "Content": {
                 "Source": "get/Manage/BusinessInfo/Logo/",
@@ -17,6 +23,7 @@
               }
             },
             {
+              "Key": "estimateSmallElement",
               "Content_Type": "small-elements",
               "Content": {
                 "Elements": [
@@ -38,7 +45,7 @@
           "Content": {
             "Title": "Customer",
             "Elements": [
-               {
+              {
                 "Key": "EstimateNo",
                 "Type": "text",
                 "Label": "Est No.",
@@ -50,6 +57,11 @@
                 "Key": "Job",
                 "Type": "text",
                 "Label": "Job No."
+              },
+              {
+                "Key": "SubProduct",
+                "Type": "text",
+                "Label": "JobType"
               }
             ]
           }
@@ -143,7 +155,8 @@
               {
                 "Key": "Net",
                 "Label": "Amount",
-                "Class": "text-right"
+                "Class": "text-right",
+                "IsNumber": true
               }
             ]
           }
@@ -166,12 +179,6 @@
           "Size": 4,
           "Key": "estimateInvoiceElementSubTotal",
           "Content_Type": "invoice-subtotal",
-          "RequestBody": [
-            [
-              "Id",
-              "id"
-            ]
-          ],
           "Content": {
             "Source": "get/Estimates/Project/SubTotal/",
             "RequestBody": [
@@ -189,9 +196,10 @@
           "Content": {
             "Elements": [
               {
+                "Key": "estimateEdit",
                 "Type": "link",
                 "Class": "btn btn-warning",
-                "Link": "/Estimates/Project/Edit/?requested={Id}",
+                "Link": "/Estimates/Project/Edit/{Id}",
                 "Access": [
                   "rwe00",
                   "rwea0",
@@ -200,24 +208,30 @@
                 "Label": "EDIT ESTIMATE"
               },
               {
+                "Key": "estimatePrintOne",
                 "Type": "link",
                 "Class": "btn btn-primary",
-                "Target": "_blank",
                 "Link": "/Estimates/Project/Print/?requested={Id}&LetterHead=On&Colour=True",
-                "Label": "PDF with LetterHead"
+                "Target": "_blank",
+                "PrintFileSuffix": "CR",
+                "Label": "PDF WITH LetterHead and Colour"
               },
               {
+                "Key": "estimatePrintTwo",
                 "Type": "link",
                 "Class": "btn btn-primary",
-                "Target": "_blank",
                 "Link": "/Estimates/Project/Print/?requested={Id}&LetterHead=Off&Colour=False",
-                "Label": "PDF without LetterHead"
+                "Target": "_blank",
+                "PrintFileSuffix": "NH",
+                "Label": "PDF WITHOUT LetterHead"
               },
               {
+                "Key": "estimatePrintThree",
                 "Type": "link",
                 "Class": "btn btn-primary",
-                "Target": "_blank",
                 "Link": "/Estimates/Project/Print/?requested={Id}&LetterHead=On&Colour=False",
+                "Target": "_blank",
+                "PrintFileSuffix": "BW",
                 "Label": "PDF B&W"
               }
             ]

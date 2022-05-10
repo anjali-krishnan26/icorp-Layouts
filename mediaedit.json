@@ -6,7 +6,7 @@
     "Content": {
       "Path": "update/Estimates/Media/",
       "Source": "get/Estimates/Media/",
-      "Button": "UPDATE ESTIMATE",
+      "Button": "SAVE ESTIMATE",
       "OnSuccess": "/Estimates/Media",
       "SourceResponseRemove": [
         "Finance",
@@ -17,6 +17,10 @@
         [
           "Client",
           "Id"
+        ],
+        [
+          "Header",
+          "Headers"
         ]
       ],
       "Elements": [
@@ -146,11 +150,11 @@
               {
                 "Label": "Estimate No. #",
                 "Type": "text",
-                "Source": "get/Estimates/Media/NewEstimateNumber/",
                 "Name": "EstimateNo",
                 "Placeholder": "Estimate Number",
                 "Required": 1,
-                "Key": "EstimateNo"
+                "Key": "EstimateNo",
+                "Disabled": true
               },
               {
                 "Label": "Job No.",
@@ -166,8 +170,8 @@
                     "Id",
                     "Address",
                     "GSTIN",
-                    "PANNO",
-                    "JobId[]"
+                    "JobId[]",
+                    "PANNO"
                   ],
                   "rowData": [
                     {
@@ -294,6 +298,24 @@
         {
           "Size": 12,
           "Content_Type": "form-elements",
+          "Key": "formElementSix",
+          "Content": {
+            "Elements": [
+              {
+                "Label": "Header",
+                "Name": "Header",
+                "Key": "Header",
+                "Placeholder": "Enter the job header",
+                "Type": "text",
+                "Required": 0,
+                "Default": "Cost of releasing the advertisements"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 12,
+          "Content_Type": "form-elements",
           "Key": "formElementFive",
           "Content": {
             "Elements": [
@@ -329,6 +351,7 @@
                         "Type": "select",
                         "Name": "Product[]",
                         "Class": "Product",
+                        "SelectDisabled": true,
                         "Source": "get/Estimates/Media/SubProducts/",
                         "copyInitialValues": [
                           "multipleForm-ignore",
@@ -340,6 +363,12 @@
                         "OnChange": {
                           "Name": "SubProduct",
                           "Source": "get/Estimates/Media/ProductParameters/",
+                          "SourceRequestBody": [
+                            [
+                              "Product",
+                              "Product[]"
+                            ]
+                          ],
                           "Response": "Add",
                           "Type": "measurements"
                         },
@@ -349,56 +378,72 @@
                     ]
                   },
                   {
+                    "Type": "measurements",
+                    "Label": "Measurements"
+                  },
+                  {
                     "Label": "Rate",
                     "Type": "text",
                     "Name": "Rate[]",
                     "Class": "money multiply",
                     "Default": "0",
-                    "OnChange": "calc('net','Total', $(this).parent().parent().index())",
+                    "OnChange": {
+                      "Calculate": {
+                        "data": [
+                          "Rate[]",
+                          "Qty"
+                        ],
+                        "Operators": [
+                          "add",
+                          "multiply"
+                        ],
+                        "resultFill": "Net[]"
+                      }
+                    },
                     "Key": "Rate"
                   },
                   {
-                    "Type": "parameters",
-                    "Width": "200",
-                    "Label": "Supplier Details",
-                    "Key": "suppliers",
-                    "Name": "Suppliers-ignore",
-                    "Elements": [
-                      {
-                        "Label": "Supplier",
-                        "Type": "select",
-                        "Name": "Supplier[]",
-                        "Class": "Supplier",
-                        "Source": "list/Masters/Suppliers/active/",
-                        "Required": 0
-                      },
-                      {
-                        "Label": "Costing",
-                        "Key": "Costing",
-                        "Type": "percentage",
-                        "Percentage": true,
-                        "Class": "money",
-                        "Name": "Costing[]",
-                        "BaseValue": "Rate[]",
-                        "OnChange": {
-                          "Calculate": {
-                            "data": [
-                              "Rate[]"
-                            ],
-                            "Operators": [
-                              "add"
-                            ],
-                            "resultFill": "Net[]"
-                          }
-                        }
+                    "Label": "Release Rate",
+                    "Type": "text",
+                    "Name": "ReleaseRate[]",
+                    "Class": "money multiply",
+                    "Default": "0",
+                    "OnChange": {
+                      "Calculate": {
+                        "data": [
+                          "ReleaseRate[]"
+                        ],
+                        "Operators": [
+                          "add"
+                        ],
+                        "resultFill": "NetReleaseRate[]"
                       }
-                    ]
+                    },
+                    "Key": "ReleaseRate"
                   },
                   {
-                    "Label": "Net Rate",
+                    "Label": "NetReleaseRate",
+                    "Type": "hidden",
+                    "Name": "NetReleaseRate[]",
+                    "Class": "net money",
+                    "IsNumber": true,
+                    "Default": "0",
+                    "OnChange": {
+                      "CalculateRows": {
+                        "data": "NetReleaseRate[]",
+                        "Operator": "add",
+                        "resultFill": "TotalReleaseRate"
+                      }
+                    },
+                    "Disabled": true,
+                    "Key": "Net"
+                  },
+                  {
+                    "Label": "Amount",
                     "Type": "text",
                     "Name": "Net[]",
                     "Class": "net money",
+                    "IsNumber": true,
                     "Default": "0",
                     "OnChange": {
                       "CalculateRows": {
@@ -446,7 +491,36 @@
                 "Name": "Total",
                 "Disabled": true,
                 "Key": "Total",
-                "Default": "0"
+                "Default": "0",
+                "IsNumber": true
+              },
+              {
+                "Label": "Total Release Rate",
+                "Type": "hidden",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "TotalReleaseRate",
+                "Disabled": true,
+                "Key": "TotalReleaseRate",
+                "Default": "0",
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
               },
               {
                 "Label": "Discount",
@@ -455,7 +529,42 @@
                 "Percentage": true,
                 "Class": "subtract money",
                 "Name": "Discount",
-                "BaseValue": "Total"
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "TotalReleaseRate",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
+              },
+              {
+                "Label": "Estimated Revenue",
+                "Type": "text",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "EstimatedRevenue",
+                "Disabled": true,
+                "Key": "Revenue",
+                "Default": "0.00",
+                "BaseValues": [
+                  "TotalReleaseRate",
+                  "Discount"
+                ],
+                "Operators": [
+                  "add",
+                  "subtract"
+                ]
               },
               {
                 "Type": "Tax",
@@ -548,7 +657,8 @@
                   "add",
                   "add"
                 ],
-                "Disabled": true
+                "Disabled": true,
+                "IsNumber": true
               }
             ]
           }

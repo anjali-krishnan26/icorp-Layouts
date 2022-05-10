@@ -1,0 +1,44 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "form",
+      "Content": {
+        "Path": "create/Manage/Departments/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "ADD DEPARTMENT",
+        "Elements": [
+          {
+            "Label": "Department",
+            "Type": "text",
+            "Name": "Department",
+            "Placeholder": "Enter Department Name",
+            "Required": 1
+          },
+          {
+            "Label": "Email",
+            "Type": "text",
+            "Name": "Email",
+            "Placeholder": "Enter Department Email",
+            "Required": 1
+          },
+          {
+            "Label": "Phone",
+            "Type": "text",
+            "Name": "Phone",
+            "Placeholder": "Enter Department Phone",
+            "Required": 1
+          },
+          {
+            "Label": "Description",
+            "Type": "textarea",
+            "Name": "Description",
+            "Placeholder": "Details",
+            "Required": 0
+          }
+        ]
+      }
+    }
+  ]

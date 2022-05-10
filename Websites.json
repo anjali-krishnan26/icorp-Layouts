@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/Websites/custom/",
+            "List": "Websites",
+            "ListClass": "data-table",
+            "Title": "Websites List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Website",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Websites','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/Websites/Create/",
+                "Path": "create/Masters/Websites/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

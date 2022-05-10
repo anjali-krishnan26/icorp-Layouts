@@ -6,6 +6,24 @@
     "Content": {
       "Path": "update/Orders/Release/",
       "Source": "get/Orders/Release/",
+      "SourceResponseChange": {
+        "Source": "get/Job/detailsForOrder/",
+        "SourceRequestBody": [
+          [
+            [
+              "JobId[]",
+              0
+            ],
+            "Job"
+          ]
+        ],
+        "ResponseFillSelectOption": {
+          "SupplierDetail": [
+            "JobData",
+            "SupplierDetail"
+          ]
+        }
+      },
       "Button": "SAVE RELEASE ORDER",
       "OnSuccess": "/Orders/Release",
       "Elements": [
@@ -60,7 +78,7 @@
                   ]
                 ],
                 "OnChangeFill": [
-                  "Id",
+                  "ClientId",
                   "Address",
                   "GSTIN"
                 ],
@@ -77,6 +95,11 @@
                 "Type": "hidden",
                 "Name": "Id",
                 "Key": "Id"
+              },
+              {
+                "Type": "hidden",
+                "Name": "ClientId",
+                "Key": "ClientId"
               },
               {
                 "Label": "Address",
@@ -113,7 +136,7 @@
                   "data": [
                     "Title",
                     "ClientName",
-                    "Id",
+                    "ClientId",
                     "Address",
                     "GSTIN",
                     "JobId[]"
@@ -205,7 +228,7 @@
                       ]
                     },
                     {
-                      "Id": [
+                      "ClientId": [
                         "ClientData",
                         "_id"
                       ]
@@ -260,8 +283,20 @@
                 "Type": "select",
                 "Name": "SupplierDetail",
                 "HideOptionKey": false,
+                "Source": "get/Orders/Release/SupplierForOrder/",
+                "SourceRequestBody": [
+                  [
+                    "Id",
+                    "routeId"
+                  ]
+                ],
+                "Get": [
+                  "Tax"
+                ],
+                "OnChangeFill": [
+                  "Id"
+                ],
                 "OnChange": {
-                  "Source": "get/Orders/Release/GetOrderBySupplier/",
                   "SourceRequestBody": [
                     [
                       "ApprovedEstimateId",
@@ -403,6 +438,10 @@
                     ]
                   },
                   {
+                    "Type": "measurements",
+                    "Label": "Measurements"
+                  },
+                  {
                     "Label": "Rate",
                     "Type": "text",
                     "Name": "Rate[]",
@@ -411,10 +450,12 @@
                     "OnChange": {
                       "Calculate": {
                         "data": [
-                          "Rate[]"
+                          "Rate[]",
+                          "Qty"
                         ],
                         "Operators": [
-                          "add"
+                          "add",
+                          "multiply"
                         ],
                         "resultFill": "Net[]"
                       }
@@ -508,7 +549,7 @@
                 "Source": "get/Orders/Release/Tax/",
                 "SourceRequestBody": [
                   [
-                    "Client",
+                    "SupplierDetail",
                     "Id"
                   ]
                 ],

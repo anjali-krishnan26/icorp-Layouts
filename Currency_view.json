@@ -1,0 +1,46 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "data",
+      "Content": {
+        "Title": "Staff",
+        "Path": "get/Manage/Currencies/",
+        "Split": [
+          4,
+          8
+        ],
+        "Elements": [
+          {
+            "Type": "p",
+            "Label": "Country",
+            "Key": "Country"
+          },
+          {
+            "Type": "p",
+            "Label": "Currency",
+            "Key": "Currency"
+          },
+          {
+            "Type": "p",
+            "Label": "Symbol",
+            "Key": "Symbol"
+          },
+          {
+            "Type": "p",
+            "Label": "Population",
+            "Key": "Population"
+          },
+          {
+            "Type": "p",
+            "Label": "Area",
+            "Key": "Area"
+          },
+          {
+            "Type": "p",
+            "Label": "Created on",
+            "Key": "Created_At"
+          }
+        ]
+      }
+    }
+  ]

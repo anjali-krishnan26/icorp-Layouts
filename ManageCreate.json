@@ -1,0 +1,83 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "form",
+      "Content": {
+        "Path": "create/Manage/Branches/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "CREATE",
+        "Elements": [
+          {
+            "Label": "Name",
+            "Type": "text",
+            "Name": "Name",
+            "Placeholder": "Enter Branch Name",
+            "Required": 1
+          },
+          {
+            "Label": "Tax Number",
+            "Type": "text",
+            "Name": "Tax_No",
+            "Placeholder": "Enter Tax Number",
+            "Required": 0
+          },
+          {
+            "Label": "Address",
+            "Type": "textarea",
+            "Name": "Address",
+            "Placeholder": "Enter Address"
+          },
+          {
+            "Label": "Phone",
+            "Type": "text",
+            "Name": "Phone",
+            "Required": 1,
+            "Placeholder": "Enter Phone"
+          },
+          {
+            "Label": "Email",
+            "Type": "text",
+            "Name": "Email",
+            "Placeholder": "Enter email"
+          },
+          {
+            "Label": "Category",
+            "Type": "select",
+            "Name": "Category",
+            "Source": "Inline",
+            "Required": 1,
+            "Options": [
+              "Branch",
+              "Zonal Office"
+            ],
+            "Values": [
+              "BR",
+              "ZO"
+            ]
+          },
+          {
+            "Label": "Country",
+            "Type": "select",
+            "Name": "Country",
+            "Source": "list/Basic/country/all/",
+            "OnChange": {
+              "Name": "Region",
+              "Source": "list/Basic/region/all/",
+              "Response": "Options"
+            },
+            "Required": 1
+          },
+          {
+            "Label": "Region",
+            "Name": "Region",
+            "Type": "select",
+            "Disabled": true,
+            "Required": 1
+          }
+        ]
+      }
+    }
+  ]

@@ -1,0 +1,36 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "edit_form",
+      "Content": {
+        "Path": "update/Manage/Currencies/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "UPDATE",
+        "Elements": [
+          {
+            "Type": "hidden",
+            "Name": "Id",
+            "Key": "Id"
+          },
+          {
+            "Label": "Country",
+            "Type": "data",
+            "Key": "Country"
+          },
+          {
+            "Label": "Currency",
+            "Type": "data",
+            "Key": "Currency"
+          },
+          {
+            "Label": "Symbol",
+            "Type": "data",
+            "Key": "Symbol"
+          }
+        ]
+      }
+    }
+  ]

@@ -17,6 +17,10 @@
         [
           "Client",
           "Id"
+        ],
+        [
+          "Header",
+          "Headers"
         ]
       ],
       "Elements": [
@@ -43,6 +47,7 @@
                     "Label": "Date",
                     "Key": "InvoiceDate",
                     "Name": "InvoiceDate",
+                    "Default": "Today",
                     "Required": 1,
                     "Placeholder": "Invoice Date"
                   }
@@ -128,6 +133,15 @@
                 "Placeholder": "Enter PAN",
                 "Required": 0,
                 "Disabled": true
+              },
+              {
+                "Label": "Due Date",
+                "Type": "date",
+                "Name": "DueDate",
+                "Default": "+15 Days",
+                "Placeholder": "",
+                "Required": 0,
+                "Key": "DueDate"
               }
             ]
           }
@@ -144,7 +158,8 @@
                 "Name": "InvoiceNo",
                 "Placeholder": "Invoice Number",
                 "Required": 1,
-                "Key": "InvoiceNo"
+                "Key": "InvoiceNo",
+                "Disabled": true
               },
               {
                 "Label": "Job No.",
@@ -162,7 +177,9 @@
                     "GSTIN",
                     "PanNo",
                     "AENo",
-                    "JobId[]"
+                    "JobId[]",
+                    "ClientId",
+                    "Address"
                   ],
                   "rowData": [
                     {
@@ -261,6 +278,12 @@
                       ]
                     },
                     {
+                      "Id": [
+                        "ClientData",
+                        "ClientId"
+                      ]
+                    },
+                    {
                       "Address": [
                         "ClientData",
                         "Address"
@@ -328,8 +351,7 @@
                 "Key": "Header",
                 "Placeholder": "Enter the job header",
                 "Type": "text",
-                "Required": 0,
-                "Default": "Cost of releasing the advertisements"
+                "Required": 0
               }
             ]
           }
@@ -432,8 +454,48 @@
                     "Key": "Rate"
                   },
                   {
+                    "Label": "Release Rate",
+                    "Type": "text",
+                    "renderConditionally": true,
+                    "MediaOnly": true,
+                    "Name": "ReleaseRate[]",
+                    "Class": "money multiply",
+                    "Default": "0",
+                    "OnChange": {
+                      "Calculate": {
+                        "data": [
+                          "ReleaseRate[]"
+                        ],
+                        "Operators": [
+                          "add"
+                        ],
+                        "resultFill": "NetReleaseRate[]"
+                      }
+                    },
+                    "Key": "ReleaseRate"
+                  },
+                  {
+                    "Label": "NetReleaseRate",
+                    "Type": "hidden",
+                    "Name": "NetReleaseRate[]",
+                    "Class": "net money",
+                    "IsNumber": true,
+                    "Default": "0",
+                    "OnChange": {
+                      "CalculateRows": {
+                        "data": "NetReleaseRate[]",
+                        "Operator": "add",
+                        "resultFill": "TotalReleaseRate"
+                      }
+                    },
+                    "Disabled": true,
+                    "Key": "Net"
+                  },
+                  {
                     "Type": "parameters",
                     "Width": "200",
+                    "renderConditionally": true,
+                    "NonMediaOnly": true,
                     "Label": "Supplier Details",
                     "Key": "suppliers",
                     "Name": "Suppliers-ignore",
@@ -445,7 +507,7 @@
                         "SelectLimit": 1000,
                         "Name": "Supplier[]",
                         "Class": "Supplier",
-                        "Source": "list/Masters/Suppliers/active/",
+                        "Source": "list/Masters/Suppliers/custom/",
                         "Required": 0
                       },
                       {
@@ -470,7 +532,7 @@
                             "Operators": [
                               "add"
                             ],
-                            "resultFill": "NetCosting[]"
+                            "resultFill": "NetReleaseRate[]"
                           }
                         }
                       }
@@ -481,7 +543,6 @@
                     "Type": "text",
                     "Name": "Net[]",
                     "Class": "net money",
-                    "Default": "0",
                     "OnChange": {
                       "CalculateRows": {
                         "data": "Net[]",
@@ -531,13 +592,76 @@
                 "Default": "0"
               },
               {
+                "Label": "Total Release Rate",
+                "Type": "hidden",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "TotalReleaseRate",
+                "Disabled": true,
+                "Key": "TotalReleaseRate",
+                "Default": "0",
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
+              },
+              {
                 "Label": "Discount",
                 "Key": "Discount",
                 "Type": "percentage",
                 "Percentage": true,
                 "Class": "subtract money",
                 "Name": "Discount",
-                "BaseValue": "Total"
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "TotalReleaseRate",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
+              },
+              {
+                "Label": "Estimated Revenue",
+                "Type": "text",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "EstimatedRevenue",
+                "Disabled": true,
+                "Key": "Revenue",
+                "Default": "0.00",
+                "BaseValues": [
+                  "TotalReleaseRate",
+                  "Discount"
+                ],
+                "Operators": [
+                  "add",
+                  "subtract"
+                ]
               },
               {
                 "Type": "Tax",

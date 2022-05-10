@@ -1,0 +1,297 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "tabs",
+      "Key": "Tabs",
+      "Content": [
+        {
+          "Title": "Basic Info",
+          "Id": "basic_info",
+          "DefaultActiveKey": "basic_info",
+          "Content": [
+            {
+              "Size": 6,
+              "Key": "EditFormOne",
+              "Content_Type": "edit_form",
+              "Content": {
+                "Path": "update/Components/Form/BasicInfo/",
+                "Split": [
+                  4,
+                  8
+                ],
+                "Button": "UPDATE",
+                "Elements": [
+                  {
+                    "Label": "Brand Name",
+                    "Type": "text",
+                    "Name": "BrandName",
+                    "Key": "BrandName",
+                    "Placeholder": "Brand Name",
+                    "Required": 1
+                  },
+                  {
+                    "Label": "Legal Name",
+                    "Type": "text",
+                    "Name": "LegalName",
+                    "Key": "LegalName",
+                    "Placeholder": "Legal Name",
+                    "Required": 0
+                  },
+                  {
+                    "Label": "Tax No",
+                    "Type": "text",
+                    "Name": "TaxNo",
+                    "Key": "TaxNo",
+                    "Placeholder": "GSTIN or Tax Index Number",
+                    "Required": 0
+                  },
+                  {
+                    "Label": "Primary Contact No.",
+                    "Type": "text",
+                    "Name": "ContactNo",
+                    "Key": "ContactNo",
+                    "Placeholder": "Contact Number",
+                    "Required": 0
+                  },
+                  {
+                    "Label": "Primary Email",
+                    "Type": "text",
+                    "Name": "Email",
+                    "Key": "Email",
+                    "Placeholder": "Company Email",
+                    "Required": 0
+                  },
+                  {
+                    "Label": "Website",
+                    "Type": "text",
+                    "Name": "Website",
+                    "Key": "Website",
+                    "Placeholder": "Enter website without &apos;http://&apos;",
+                    "Required": 1
+                  },
+                  {
+                    "Label": "Registered Office",
+                    "Type": "textarea",
+                    "Name": "Office",
+                    "Key": "Office",
+                    "Placeholder": "Full Address",
+                    "Required": 0
+                  },
+                  {
+                    "Label": "Super User",
+                    "Type": "data",
+                    "Key": "SuperUser",
+                    "Warning": "* To change contact iCORP care"
+                  },
+                  {
+                    "Label": "Package",
+                    "Type": "data",
+                    "Key": "Package"
+                  },
+                  {
+                    "Label": "Package Expiry",
+                    "Type": "data",
+                    "Key": "Expiry"
+                  },
+                  {
+                    "Label": "Joined On",
+                    "Type": "data",
+                    "Key": "Joined"
+                  },
+                  {
+                    "Label": "Last Updated On",
+                    "Type": "data",
+                    "Key": "Updated"
+                  }
+                ]
+              }
+            },
+            {
+              "Size": 6,
+              "Key": "UploadFormOne",
+              "Content_Type": "upload_form",
+              "Content": {
+                "Path": "update/Components/Form/Logo/",
+                "Split": [
+                  4,
+                  8
+                ],
+                "Button": "UPDATE LOGO",
+                "Elements": [
+                  {
+                    "Type": "image",
+                    "Key": "Logo"
+                  },
+                  {
+                    "Label": "Select Logo",
+                    "Type": "file",
+                    "Name": "Logo",
+                    "Key": "File"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Title": "Print Settings",
+          "Id": "print_settings",
+          "Content": [
+            {
+              "Size": 6,
+              "Key": "EditFormTwo",
+              "Content_Type": "edit_form",
+              "Content": {
+                "Path": "update/Components/Form/Theme/",
+                "Split": [
+                  3,
+                  9
+                ],
+                "Button": "",
+                "Elements": [
+                  {
+                    "Label": "Theme Colour",
+                    "SubSplit": [
+                      1,
+                      1,
+                      1,
+                      1,
+                      1,
+                      2,
+                      2
+                    ],
+                    "Type": "split_input",
+                    "Key": "ColorPicker",
+                    "Content": [
+                      {
+                        "Type": "predata",
+                        "Value": "RGB("
+                      },
+                      {
+                        "Type": "text",
+                        "Name": "ThemeRed",
+                        "Key": "ThemeRed",
+                        "OnChange": "color_change('ThemeBtn','Theme')",
+                        "Required": 1
+                      },
+                      {
+                        "Type": "text",
+                        "Name": "ThemeGreen",
+                        "Key": "ThemeGreen",
+                        "OnChange": "color_change('ThemeBtn','Theme')",
+                        "Required": 1
+                      },
+                      {
+                        "Type": "text",
+                        "Name": "ThemeBlue",
+                        "Key": "ThemeBlue",
+                        "OnChange": "color_change('ThemeBtn','Theme')",
+                        "Required": 1
+                      },
+                      {
+                        "Type": "predata",
+                        "Value": ")"
+                      },
+                      {
+                        "Type": "predata",
+                        "Value": "<button id=\"ThemeBtn\" style=\"border: none; width: 60px; height: 30px;\" type=\"button\" disabled></button>"
+                      },
+                      {
+                        "Type": "SubmitBtn"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "Size": 6,
+              "Key": "EditFormThree",
+              "Content_Type": "edit_form",
+              "Content": {
+                "Path": "update/Components/Form/AddressMode/",
+                "Split": [
+                  3,
+                  9
+                ],
+                "Button": "",
+                "Elements": [
+                  {
+                    "Label": "Address Mode",
+                    "Type": "split_input",
+                    "SubSplit": [
+                      7,
+                      2
+                    ],
+                    "Key": "Address",
+                    "Content": [
+                      {
+                        "Type": "radios",
+                        "Values": [
+                          "branch",
+                          "default"
+                        ],
+                        "RadioLabels": [
+                          "Branch Address",
+                          "Registered Office"
+                        ],
+                        "Name": "AddressMode",
+                        "Key": "AddressMode"
+                      },
+                      {
+                        "Type": "SubmitBtn"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "Size": 12,
+              "Key": "BoxOne",
+              "Content_Type": "box",
+              "Content": "Document Body",
+              "Height": "300px"
+            },
+            {
+              "Size": 12,
+              "Key": "EditFormFour",
+              "Content_Type": "edit_form",
+              "Content": {
+                "Path": "update/Components/Form/PaymentTerms/",
+                "Split": [
+                  12
+                ],
+                "Button": "SAVE",
+                "Elements": [
+                  {
+                    "Type": "multiple",
+                    "Display": "Div",
+                    "Label": "Payment Terms",
+                    "Name": "PaymentTerms",
+                    "Split": [
+                      10,
+                      2
+                    ],
+                    "Add": "<i class='fa fa-plus'></i>",
+                    "Delete": "<i class='fa fa-trash'></i>",
+                    "Elements": [
+                      {
+                        "Type": "textarea",
+                        "Placeholder": "Payment Terms",
+                        "Name": "PaymentTerm",
+                        "Key": "PaymentTerm"
+                      },
+                      {
+                        "Type": "Actions"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]

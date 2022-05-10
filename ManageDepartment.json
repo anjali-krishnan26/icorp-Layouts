@@ -1,0 +1,43 @@
+[
+    {
+      "Size": 12,
+      "Key": "departmentsLayout",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "departmentsLayout",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Manage/Departments/active/",
+            "List": "Departments",
+            "ListClass": "data-table",
+            "Title": "More means division of tasks",
+            "THead": [
+              "Name",
+              "Description",
+              "Phone",
+              "Email",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Department",
+                "Access": [
+                  "rwea0",
+                  "rwe00",
+                  "rw000",
+                  "rwead"
+                ],
+                "Function": "add('Manage','Departments','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "/Manage/Departments/Create/",
+                "Path": "create/Manage/Departments/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

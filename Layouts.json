@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Key": "layoutsLayout",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "layoutsList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Manage/Layouts/all/",
+            "List": "Manage",
+            "ListClass": "data-table",
+            "Title": "Layouts List",
+            "THead": [
+              "#",
+              "Module",
+              "SubModule",
+              "Type",
+              "Rule",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Create Layout",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "goto('/Manage/Layouts/Create/')",
+                "RedirectTo": "Manage/Layouts/Create"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

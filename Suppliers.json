@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/Suppliers/custom/",
+            "List": "Suppliers",
+            "ListClass": "data-table",
+            "Title": "Supplier List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Supplier",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Suppliers','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/Suppliers/Create/",
+                "Path": "create/Masters/Suppliers/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

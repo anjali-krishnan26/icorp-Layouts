@@ -168,16 +168,30 @@
                 "Width": "50"
               },
               {
-                "Key": "Particular",
-                "Label": "Title",
-                "Width": "60%"
+                "Key": "Product",
+                "Source": "get/Invoices/RowTitles/",
+                "SourceRequestBody": [
+                  [
+                    "Product",
+                    "Product"
+                  ]
+                ]
               },
               {
                 "Key": "Net",
-                "Label": "Amount",
+                "Label": "Amount (INR)",
+                "IsNumber": true,
                 "Class": "text-right"
               }
             ]
+          }
+        },
+        {
+          "Size": 8,
+          "Key": "estimateInvoiceElementFive",
+          "Content_Type": "invoice-elements",
+          "Content": {
+            "Elements": []
           }
         },
         {

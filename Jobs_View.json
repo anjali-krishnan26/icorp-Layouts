@@ -1,0 +1,95 @@
+[
+    {
+      "Size": 12,
+      "Key": "jobRowOne",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 4,
+          "Key": "jobDetails",
+          "Content_Type": "data",
+          "Content": {
+            "Title": "Job Details",
+            "Path": "get/Job/",
+            "Split": [
+              4,
+              8
+            ],
+            "Elements": [
+              {
+                "Type": "p",
+                "Label": "Job Code",
+                "Key": "JobCode"
+              },
+              {
+                "Type": "p",
+                "Label": "Title",
+                "Key": "Title"
+              },
+              {
+                "Type": "p",
+                "Label": "Description",
+                "Key": "Description"
+              },
+              {
+                "Type": "p",
+                "Label": "Client",
+                "Key": "Client"
+              },
+              {
+                "Type": "p",
+                "Label": "Contact Person",
+                "Key": "ContactPerson"
+              },
+              {
+                "Type": "p",
+                "Label": "Product",
+                "Key": "Product"
+              },
+              {
+                "Type": "p",
+                "Label": "Category",
+                "Key": "SubProduct"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 8,
+          "Key": "jobTimeline",
+          "Content_Type": "timeline",
+          "Content": {
+            "Title": "Status",
+            "Path": "get/Job/Status/"
+          }
+        }
+      ]
+    },
+    {
+      "Size": 12,
+      "Key": "jobRowTwo",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 6,
+          "Key": "jobConversations",
+          "Content_Type": "chat",
+          "Content": {
+            "Title": "Conversations",
+            "Action": "update/Job/NewChat/",
+            "Path": "get/Job/Chat/"
+          }
+        },
+        {
+          "Size": 6,
+          "Key": "jobFolder",
+          "Content_Type": "folder",
+          "Content": {
+            "Title": "Files",
+            "Path": "get/Job/Files/",
+            "Upload": "upload/Job/Files/"
+          }
+        }
+      ]
+    }
+  ]

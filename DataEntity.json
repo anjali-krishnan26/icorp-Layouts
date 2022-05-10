@@ -1,0 +1,216 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "data",
+      "Content": {
+        "Title": "Access Control Details",
+        "Split": [
+          4,
+          8
+        ],
+        "Elements": [
+          {
+            "Type": "p",
+            "Label": "Access Level",
+            "Key": "level"
+          },
+          {
+            "Type": "title",
+            "Label": "Dashboard"
+          },
+          {
+            "Type": "p",
+            "Label": "Dashboard",
+            "Key": "Dashboard"
+          },
+          {
+            "Type": "title",
+            "Label": "Masters"
+          },
+          {
+            "Type": "p",
+            "Label": "Clients",
+            "Key": "Masters_Clients"
+          },
+          {
+            "Type": "p",
+            "Label": "Publications",
+            "Key": "Masters_Publications"
+          },
+          {
+            "Type": "p",
+            "Label": "Suppliers",
+            "Key": "Masters_Suppliers"
+          },
+          {
+            "Type": "p",
+            "Label": "Channels",
+            "Key": "Masters_Channels"
+          },
+          {
+            "Type": "p",
+            "Label": "Radio",
+            "Key": "Masters_Radio"
+          },
+          {
+            "Type": "p",
+            "Label": "OutOfHome",
+            "Key": "Masters_OutOfHome"
+          },
+          {
+            "Type": "p",
+            "Label": "Websites",
+            "Key": "Masters_Websites"
+          },
+          {
+            "Type": "p",
+            "Label": "Digital ",
+            "Key": "Masters_Digital "
+          },
+          {
+            "Type": "p",
+            "Label": "Theatres",
+            "Key": "Masters_Theatres"
+          },
+          {
+            "Type": "title",
+            "Label": "Job"
+          },
+          {
+            "Type": "p",
+            "Label": "Job",
+            "Key": "Job"
+          },
+          {
+            "Type": "title",
+            "Label": "Estimates"
+          },
+          {
+            "Type": "p",
+            "Label": "Production",
+            "Key": "Estimates_Production"
+          },
+          {
+            "Type": "p",
+            "Label": "Media",
+            "Key": "Estimates_Media"
+          },
+          {
+            "Type": "p",
+            "Label": "Telecast",
+            "Key": "Estimates_Telecast"
+          },
+          {
+            "Type": "p",
+            "Label": "Retainer",
+            "Key": "Estimates_Retainer"
+          },
+          {
+            "Type": "p",
+            "Label": "Project",
+            "Key": "Estimates_Project"
+          },
+          {
+            "Type": "title",
+            "Label": "Orders"
+          },
+          {
+            "Type": "p",
+            "Label": "Work",
+            "Key": "Orders_Work"
+          },
+          {
+            "Type": "p",
+            "Label": "Release",
+            "Key": "Orders_Release"
+          },
+          {
+            "Type": "title",
+            "Label": "Invoices"
+          },
+          {
+            "Type": "p",
+            "Label": "invoices",
+            "Key": "Invoices"
+          },
+          {
+            "Type": "title",
+            "Label": "Transactions"
+          },
+          {
+            "Type": "p",
+            "Label": "Receivables",
+            "Key": "Transactions_Receivables"
+          },
+          {
+            "Type": "p",
+            "Label": "Payables",
+            "Key": "Transactions_Payables"
+          },
+          {
+            "Type": "title",
+            "Label": "Reports"
+          },
+          {
+            "Type": "p",
+            "Label": "MIS",
+            "Key": "Reports_MIS"
+          },
+          {
+            "Type": "p",
+            "Label": "Finance",
+            "Key": "Reports_Finance"
+          },
+          {
+            "Type": "p",
+            "Label": "Performance",
+            "Key": "Reports_Performance"
+          },
+          {
+            "Type": "title",
+            "Label": "Manage"
+          },
+          {
+            "Type": "p",
+            "Label": "Branches",
+            "Key": "Manage_Branches"
+          },
+          {
+            "Type": "p",
+            "Label": "Departments",
+            "Key": "Manage_Departments"
+          },
+          {
+            "Type": "p",
+            "Label": "Staffs",
+            "Key": "Manage_Staffs"
+          },
+          {
+            "Type": "p",
+            "Label": "Currencies",
+            "Key": "Manage_Currencies"
+          },
+          {
+            "Type": "p",
+            "Label": "Taxes",
+            "Key": "Manage_Taxes"
+          },
+          {
+            "Type": "p",
+            "Label": "Info",
+            "Key": "Manage_Info"
+          },
+          {
+            "Type": "p",
+            "Label": "Profile",
+            "Key": "Manage_Profile"
+          },
+          {
+            "Type": "p",
+            "Label": "Numbering",
+            "Key": "Manage_Numbering"
+          }
+        ]
+      }
+    }
+  ]

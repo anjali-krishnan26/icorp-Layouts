@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/Digital/custom/",
+            "List": "Digital",
+            "ListClass": "data-table",
+            "Title": "Digital List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Digital Media",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Digital','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/Digital/Create/",
+                "Path": "create/Masters/Digital/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/Radio/custom/",
+            "List": "Radio",
+            "ListClass": "data-table",
+            "Title": "Radio List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Radio",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Radio','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/Radio/Create/",
+                "Path": "create/Masters/Radio/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

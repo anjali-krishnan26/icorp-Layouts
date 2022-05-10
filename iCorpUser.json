@@ -1,0 +1,34 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "form-elements",
+      "Content": {
+        "Split": [
+          4,
+          8
+        ],
+        "Elements": [
+          {
+            "Type": "password",
+            "Name": "Password",
+            "Placeholder": "Enter Password",
+            "Label": "Password",
+            "Required": 1
+          },
+          {
+            "Type": "password",
+            "Name": "Retype_Password",
+            "Placeholder": "Retype Password",
+            "Label": "Retype Password",
+            "Required": 1
+          },
+          {
+            "Type": "checkbox",
+            "Name": "Department_Rule",
+            "Value": 1,
+            "Label": "Import access from department?"
+          }
+        ]
+      }
+    }
+  ]

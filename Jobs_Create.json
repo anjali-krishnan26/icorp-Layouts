@@ -1,0 +1,97 @@
+[
+    {
+      "Size": 12,
+      "Key": "formLayout",
+      "Content_Type": "form",
+      "Content": {
+        "Path": "create/Job/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "SAVE JOB",
+        "Elements": [
+          {
+            "Label": "Client",
+            "Key": "Client",
+            "Type": "select",
+            "Name": "Client",
+            "Source": "business/all-clients/",
+            "Required": 1
+          },
+          {
+            "Label": "Contact Person",
+            "Key": "ContactPerson",
+            "Type": "text",
+            "Name": "ContactPerson",
+            "Placeholder": "Enter name of person",
+            "Required": 0
+          },
+          {
+            "Label": "Product",
+            "Key": "Product",
+            "Type": "select",
+            "Name": "Product",
+            "Source": "get/Components/Form/MainProducts/",
+            "OnChange": {
+              "Name": "SubProduct",
+              "Source": "get/Components/Form/SubProducts/",
+              "Response": "Options"
+            },
+            "Required": 1
+          },
+          {
+            "Label": "SubProduct",
+            "Key": "SubProduct",
+            "Type": "select",
+            "Name": "SubProduct",
+            "Disabled": true,
+            "Required": 1
+          },
+          {
+            "Label": "Title",
+            "Key": "Title",
+            "Type": "text",
+            "Name": "Title",
+            "Placeholder": "Enter title of the work",
+            "Required": 1
+          },
+          {
+            "Label": "Description",
+            "Key": "Description",
+            "Type": "textarea",
+            "Name": "Description",
+            "Placeholder": "Enter Description",
+            "Required": 0
+          },
+          {
+            "Label": "Date",
+            "Key": "Date",
+            "Type": "date",
+            "Name": "JobDate",
+            "Placeholder": "Enter Date",
+            "Default": "Today"
+          },
+          {
+            "Label": "Send for Approval",
+            "Key": "ByepassApproval",
+            "Type": "checkbox",
+            "Name": "ByepassApproval",
+            "Value": 1,
+            "OnChange": {
+              "Name": "DepartmentHead",
+              "Response": "Enable"
+            }
+          },
+          {
+            "Label": "Department Head",
+            "Key": "DepartmentHead",
+            "Type": "select",
+            "Name": "DepartmentHead",
+            "Source": "get/Manage/Staffs/DepartmentHeads/",
+            "Disabled": true
+          }
+        ]
+      }
+    }
+  ]

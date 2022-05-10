@@ -1,0 +1,88 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "invoice",
+      "Content": {
+        "Path": "create/Manage/Layouts/",
+        "Button": "CREATE LAYOUT",
+        "Elements": [
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "text",
+                  "Key": "Module",
+                  "Label": "Module",
+                  "Name": "Module"
+                },
+                {
+                  "Type": "text",
+                  "Key": "SubModule",
+                  "Label": "Sub Module",
+                  "Name": "SubModule"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "text",
+                  "Key": "Type",
+                  "Label": "Type",
+                  "Name": "Type"
+                },
+                {
+                  "Type": "text",
+                  "Key": "Rule",
+                  "Label": "Rule",
+                  "Default": "Advertising",
+                  "Name": "Rule"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "text",
+                  "Key": "Title",
+                  "Label": "Title",
+                  "Name": "Title"
+                },
+                {
+                  "Type": "text",
+                  "Key": "SubTitle",
+                  "Label": "Subtitle",
+                  "Name": "SubTitle"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 12,
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "textarea",
+                  "Class": "json",
+                  "Rows": 20,
+                  "Name": "Layout",
+                  "Key": "Layout"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]

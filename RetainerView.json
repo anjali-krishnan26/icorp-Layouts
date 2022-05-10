@@ -1,15 +1,21 @@
 [
   {
     "Size": 12,
+    "Key": "estimateRowOne",
     "Content_Type": "invoice-view",
     "Content": {
       "Source": "get/Estimates/Retainer/EstimateData/",
+      "Print": "Estimates/Retainer/Print/",
+      "PrintFilePrefix": "Retainer_Estimate",
+      "PrintFileCode": "EstimateNo",
       "Elements": [
         {
           "Size": 12,
+          "Key": "estimateHeader",
           "Content_Type": "header",
           "Content": [
             {
+              "Key": "estimateImage",
               "Content_Type": "brand",
               "Content": {
                 "Source": "get/Manage/BusinessInfo/Logo/",
@@ -17,6 +23,7 @@
               }
             },
             {
+              "Key": "estimateSmallElement",
               "Content_Type": "small-elements",
               "Content": {
                 "Elements": [
@@ -76,9 +83,6 @@
               {
                 "Key": "JobDate",
                 "Type": "date",
-                "Style": {
-                  "fontWeight": "bold"
-                },
                 "Label": "Date"
               }
             ]
@@ -148,11 +152,11 @@
                 "Label": "Title",
                 "Width": "60%"
               },
-
               {
                 "Key": "Net",
                 "Label": "Amount",
-                "Class": "text-right"
+                "Class": "text-right",
+                "IsNumber": true
               }
             ]
           }
@@ -173,6 +177,7 @@
         },
         {
           "Size": 4,
+          "Key": "estimateInvoiceElementSubTotal",
           "Content_Type": "invoice-subtotal",
           "Content": {
             "Source": "get/Estimates/Retainer/SubTotal/",
@@ -186,13 +191,15 @@
         },
         {
           "Size": 12,
+          "Key": "estimateInvoiceElementSix",
           "Content_Type": "button-elements",
           "Content": {
             "Elements": [
               {
+                "Key": "estimateEdit",
                 "Type": "link",
                 "Class": "btn btn-warning",
-                "Link": "/Estimates/Retainer/Edit/?requested={Id}",
+                "Link": "/Estimates/Retainer/Edit/{Id}",
                 "Access": [
                   "rwe00",
                   "rwea0",
@@ -201,24 +208,30 @@
                 "Label": "EDIT ESTIMATE"
               },
               {
+                "Key": "estimatePrintOne",
                 "Type": "link",
                 "Class": "btn btn-primary",
                 "Link": "/Estimates/Retainer/Print/?requested={Id}&LetterHead=On&Colour=True",
                 "Target": "_blank",
+                "PrintFileSuffix": "CR",
                 "Label": "PDF WITH LetterHead and Colour"
               },
               {
+                "Key": "estimatePrintTwo",
                 "Type": "link",
                 "Class": "btn btn-primary",
                 "Link": "/Estimates/Retainer/Print/?requested={Id}&LetterHead=Off&Colour=False",
                 "Target": "_blank",
+                "PrintFileSuffix": "NH",
                 "Label": "PDF WITHOUT LetterHead"
               },
               {
+                "Key": "estimatePrintThree",
                 "Type": "link",
                 "Class": "btn btn-primary",
                 "Link": "/Estimates/Retainer/Print/?requested={Id}&LetterHead=On&Colour=False",
                 "Target": "_blank",
+                "PrintFileSuffix": "BW",
                 "Label": "PDF B&W"
               }
             ]

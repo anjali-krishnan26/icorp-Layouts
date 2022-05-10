@@ -23,6 +23,11 @@
       "marginBottom": "1mm"
     }
   },
+  "PageContent": {
+    "Style": {
+      "paddingTop": "5mm"
+    }
+  },
   "PageTitle": {
     "Style": {
       "fontFamily": "Verdana",
@@ -316,11 +321,15 @@
       "flexDirection": "row",
       "paddingHorizontal": "1mm",
       "paddingVertical": "1.2mm",
-      "backgroundColor": "rgb(0, 0, 0)",
-      "color": "rgb(255, 255, 255)"
+      "border": "1px solid rgb(0, 0, 0)",
+      "borderLeft": "none",
+      "borderRight": "none",
+      "color": "rgb(0, 0, 0)"
     },
     "ColorHeadStyle": {
-      "backgroundColor": "rgb(142, 168, 61)"
+      "backgroundColor": "rgb(142, 168, 61)",
+      "color": "rgb(255, 255, 255)",
+      "border": "none"
     },
     "Elements": [
       {
@@ -373,22 +382,7 @@
     "Padding": 3,
     "Type": "subtotal-table",
     "Columns": [
-      [
-        {
-          "Type": "text",
-          "Value": "Remarks: ",
-          "Style": {
-            "width": "20mm"
-          }
-        },
-        {
-          "Type": "richText",
-          "Key": "Remarks",
-          "Style": {
-            "width": "100mm"
-          }
-        }
-      ],
+      [],
       [
         {
           "Type": "numberInWords",

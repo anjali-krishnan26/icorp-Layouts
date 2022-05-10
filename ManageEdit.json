@@ -1,0 +1,88 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "edit_form",
+      "Content": {
+        "Path": "update/Manage/Branches/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "UPDATE",
+        "Elements": [
+          {
+            "Label": "Name",
+            "Key": "Branch",
+            "Type": "text",
+            "Name": "Name",
+            "Placeholder": "Enter Branch Name",
+            "Required": 1
+          },
+          {
+            "Key": "Id",
+            "Type": "hidden",
+            "Name": "Id",
+            "Required": 1
+          },
+          {
+            "Label": "Tax Number",
+            "Key": "Tax_No",
+            "Type": "text",
+            "Name": "Tax_No",
+            "Placeholder": "Enter Tax Number",
+            "Required": 0
+          },
+          {
+            "Label": "Address",
+            "Key": "Address",
+            "Type": "textarea",
+            "Name": "Address",
+            "Placeholder": "Enter Address"
+          },
+          {
+            "Label": "Phone",
+            "Key": "Phone",
+            "Type": "number",
+            "Name": "Phone",
+            "Required": 1,
+            "Placeholder": "Enter Phone"
+          },
+          {
+            "Label": "Email",
+            "Key": "Email",
+            "Type": "email",
+            "Name": "Email",
+            "Placeholder": "Enter email"
+          },
+          {
+            "Label": "Category",
+            "Key": "Category",
+            "Type": "select",
+            "Name": "Category",
+            "Source": "Inline",
+            "Required": 1,
+            "Options": [
+              "Branch",
+              "Zonal Office",
+              "Head Office"
+            ],
+            "Values": [
+              "BR",
+              "ZO",
+              "HO"
+            ]
+          },
+          {
+            "Label": "Country",
+            "Key": "Country",
+            "Type": "select",
+            "Name": "Country",
+            "Source": "list/Basic/country/all/",
+            "OnChange": "new_input('select', 'Region', 'list/Basic/region/all/', {country: this.value}, $('option:selected', this).attr('data-Region'),[4,8])",
+            "RelativeDiv": "Region",
+            "Required": 0
+          }
+        ]
+      }
+    }
+  ]

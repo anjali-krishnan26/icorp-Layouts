@@ -316,7 +316,8 @@
         "IsNumber": true,
         "Style": {
           "width": "30mm",
-          "textAlign": "right"
+          "textAlign": "right",
+          "paddingRight": "30mm"
         }
       }
     ]

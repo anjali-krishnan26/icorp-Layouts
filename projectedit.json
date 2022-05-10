@@ -11,14 +11,16 @@
       "SourceResponseRemove": [
         "Finance",
         "Rows",
-        "Header",
-        "Created_At",
-        "Created_by"
+        "Header"
       ],
       "SourceResponseFill": [
         [
           "Client",
           "Id"
+        ],
+        [
+          "Header",
+          "Headers"
         ]
       ],
       "Elements": [
@@ -121,7 +123,7 @@
               {
                 "Label": "PAN",
                 "Type": "text",
-                "Key": "PANNO",
+                "Key": "PANNP",
                 "Name": "PANNO",
                 "Placeholder": "Enter PAN",
                 "Required": 0,
@@ -148,7 +150,6 @@
               {
                 "Label": "Estimate No. #",
                 "Type": "text",
-                "Source": "get/Estimates/Project/NewEstimateNumber/",
                 "Name": "EstimateNo",
                 "Placeholder": "Estimate Number",
                 "Required": 1,
@@ -166,9 +167,10 @@
                     "Title",
                     "ClientName",
                     "Id",
-                    "Address",
+                    "GSTIN",
                     "JobId[]",
-                    "GSTIN"
+                    "PANNO",
+                    "Address"
                   ],
                   "rowData": [
                     {
@@ -177,16 +179,6 @@
                         "multipleForm-ignore",
                         0,
                         "Particular[]"
-                      ]
-                    },
-                    {
-                      "value": "",
-                      "key": [
-                        "multipleForm-ignore",
-                        0,
-                        "Parameters-ignore",
-                        0,
-                        "Product[]"
                       ]
                     }
                   ]
@@ -275,6 +267,13 @@
                 "Placeholder": "Enter the job title",
                 "Type": "text",
                 "Required": 1
+              },
+              {
+                "Label": "Header",
+                "Name": "Header",
+                "Key": "Header",
+                "Placeholder": "Enter the header",
+                "Type": "textarea"
               }
             ]
           }
@@ -305,7 +304,6 @@
                     "Key": "Particular",
                     "Default": ""
                   },
-
                   {
                     "Label": "Rate",
                     "Type": "text",
@@ -335,36 +333,36 @@
                       {
                         "Label": "Supplier",
                         "Type": "select",
-                        "IsMulti": true,
-                        "SelectLimit": 1000,
+                        "IsMulti": "true",
                         "Name": "Supplier[]",
+                        "SelectLimit": 1000,
                         "Class": "Supplier",
-                        "Source": "list/Masters/Suppliers/active/",
+                        "Source": "list/Masters/Suppliers/custom/",
                         "Required": 0
                       },
                       {
                         "Label": "Costing",
                         "Key": "Costing",
                         "Type": "percentage",
-                        "Percentage": true,
-                        "Class": "money",
-                        "Name": "Costing[]",
-                        "BaseValue": "Rate[]",
                         "Split": [
                           12,
                           12,
                           12,
                           12
                         ],
+                        "Percentage": true,
+                        "Class": "money",
+                        "Name": "Costing[]",
+                        "BaseValue": "Rate[]",
                         "OnChange": {
                           "Calculate": {
                             "data": [
-                              "this"
+                              "Rate[]"
                             ],
                             "Operators": [
                               "add"
                             ],
-                            "resultFill": "NetCosting[]"
+                            "resultFill": "Net[]"
                           }
                         }
                       }
@@ -439,6 +437,34 @@
                 "Disabled": true,
                 "Key": "Total",
                 "Default": "0"
+              },
+              {
+                "Label": "TotalCosting",
+                "Type": "hidden",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "TotalCosting",
+                "Disabled": true,
+                "Key": "TotalCosting",
+                "Default": "0",
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
               },
               {
                 "Label": "Discount",

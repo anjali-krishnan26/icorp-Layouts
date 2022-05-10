@@ -1,0 +1,46 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "data",
+      "Content": {
+        "Title": "Tax",
+        "Path": "get/Manage/Taxes/",
+        "Split": [
+          4,
+          8
+        ],
+        "Elements": [
+          {
+            "Type": "p",
+            "Label": "Tax",
+            "Key": "Tax"
+          },
+          {
+            "Type": "p",
+            "Label": "Rate",
+            "Key": "Rate"
+          },
+          {
+            "Type": "p",
+            "Label": "Region",
+            "Key": "Region"
+          },
+          {
+            "Type": "p",
+            "Label": "Country",
+            "Key": "Country"
+          },
+          {
+            "Type": "labels",
+            "Label": "Documents",
+            "Key": "Documents"
+          },
+          {
+            "Type": "p",
+            "Label": "Created on",
+            "Key": "Created_At"
+          }
+        ]
+      }
+    }
+  ]

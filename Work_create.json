@@ -1,0 +1,559 @@
+[
+    {
+      "Size": 12,
+      "Key": "invoiceRow",
+      "Content_Type": "invoice",
+      "Content": {
+        "Path": "create/Orders/Work/",
+        "Button": "SAVE WORK ORDER",
+        "OnSuccess": "/Orders/Work",
+        "Elements": [
+          {
+            "Size": 12,
+            "Key": "invoiceHeader",
+            "Content_Type": "header",
+            "Content": [
+              {
+                "Key": "invoiceBrand",
+                "Content_Type": "brand",
+                "Content": {
+                  "Source": "get/Manage/BusinessInfo/Logo/",
+                  "Height": "60"
+                }
+              }
+            ]
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementOne",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Supplier Details",
+                  "Type": "async-select",
+                  "Name": "Supplier",
+                  "Source": "get/Masters/Suppliers/searchEntity/",
+                  "FillValue": "label",
+                  "SourceRequestBody": [
+                    [
+                      "term",
+                      ""
+                    ]
+                  ],
+                  "OnChangeFill": [
+                    "Id",
+                    "Address",
+                    "GSTIN"
+                  ],
+                  "hasDefaultOptions": false,
+                  "Placeholder": "Enter Supplier Name",
+                  "OnChange": "TaxInputGenerate('subtotal_tax',{'Supplier': $('#Id').val()})",
+                  "Required": 1,
+                  "Key": "Supplier Details"
+                },
+                {
+                  "Type": "date",
+                  "Label": "Date",
+                  "Key": "OrderDate",
+                  "Name": "OrderDate",
+                  "Default": "Today",
+                  "Required": 1,
+                  "Placeholder": "Order Date"
+                },
+                {
+                  "Label": "Addressed To",
+                  "Type": "text",
+                  "Key": "Person",
+                  "Name": "Person",
+                  "Placeholder": "Enter Addressed Person",
+                  "Required": 0
+                },
+                {
+                  "Label": "GSTIN",
+                  "Type": "text",
+                  "Key": "GSTIN",
+                  "Name": "GSTIN",
+                  "Placeholder": "Enter GSTIN",
+                  "Required": 0,
+                  "Disabled": true
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementTwo",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Client Details",
+                  "Type": "async-select",
+                  "Name": "ClientName",
+                  "Source": "get/Masters/Clients/searchEntity/",
+                  "SourceRequestBody": [
+                    [
+                      "term",
+                      ""
+                    ]
+                  ],
+                  "OnChangeFill": [
+                    "Id",
+                    "Address",
+                    "GSTIN"
+                  ],
+                  "Get": [
+                    "Tax"
+                  ],
+                  "hasDefaultOptions": false,
+                  "Placeholder": "Enter Client Name",
+                  "OnChange": "TaxInputGenerate('subtotal_tax',{'Client': $('#Id').val()})",
+                  "Required": 1,
+                  "Key": "Client Details"
+                },
+                {
+                  "Label": "Address",
+                  "Type": "textarea",
+                  "Name": "Address",
+                  "Placeholder": "Enter Office Address",
+                  "Required": 0,
+                  "Key": "Address"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Key": "FormElementThree",
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Order No. #",
+                  "Type": "text",
+                  "Source": "get/Orders/Work/NewOrderNumber/",
+                  "Name": "OrderNo",
+                  "Placeholder": "Order Number",
+                  "Required": 1
+                },
+                {
+                  "Label": "Job No.",
+                  "Type": "select",
+                  "IsMulti": "true",
+                  "SelectLimit": 1,
+                  "Name": "JobId[]",
+                  "Source": "get/Orders/Work/JobsToOrder/",
+                  "OptionLabel": "JobCode",
+                  "OnClear": {
+                    "data": [
+                      "Title",
+                      "ClientName",
+                      "Id",
+                      "Address",
+                      "GSTIN",
+                      "AENo",
+                      "JobId[]"
+                    ],
+                    "rowData": [
+                      {
+                        "value": "",
+                        "key": [
+                          "multipleForm-ignore",
+                          0,
+                          "Particular[]"
+                        ]
+                      },
+                      {
+                        "value": "",
+                        "key": [
+                          "multipleForm-ignore",
+                          0,
+                          "Parameters-ignore",
+                          0,
+                          "Product[]"
+                        ]
+                      }
+                    ]
+                  },
+                  "OnChange": {
+                    "Name": "SelectedJobs",
+                    "Source": "get/Job/detailsForOrder/",
+                    "Response": "Options",
+                    "SourceRequestBody": [
+                      [
+                        "this",
+                        "Job"
+                      ]
+                    ],
+                    "ResponseOptions": "JobSelect",
+                    "SetState": [
+                      "JobSelect"
+                    ],
+                    "ResponseFillMultipleForm": [
+                      {
+                        "value": [
+                          "JobData",
+                          "EstimateData",
+                          0,
+                          "Rows",
+                          "Particular"
+                        ],
+                        "key": [
+                          "multipleForm-ignore",
+                          "Particular[]"
+                        ]
+                      },
+                      {
+                        "value": [
+                          "JobData",
+                          "SubProduct"
+                        ],
+                        "key": [
+                          "multipleForm-ignore",
+                          0,
+                          "Parameters-ignore",
+                          0,
+                          "Product[]"
+                        ]
+                      },
+                      {
+                        "value": [
+                          "JobData",
+                          "EstimateData",
+                          0,
+                          "Rows",
+                          "UnitRate"
+                        ],
+                        "key": [
+                          "multipleForm-ignore",
+                          "Rate[]"
+                        ]
+                      },
+                      {
+                        "value": [
+                          "JobData",
+                          "EstimateData",
+                          0,
+                          "Rows",
+                          "NetRate"
+                        ],
+                        "key": [
+                          "multipleForm-ignore",
+                          "Net[]"
+                        ]
+                      },
+                      {
+                        "value": [
+                          "JobData",
+                          "EstimateData",
+                          0,
+                          "Finance",
+                          "Total"
+                        ],
+                        "key": [
+                          "Total"
+                        ]
+                      }
+                    ],
+                    "ResponseFill": [
+                      {
+                        "Title": [
+                          "JobData",
+                          "Title"
+                        ]
+                      },
+                      {
+                        "ClientName": [
+                          "ClientData",
+                          "Name"
+                        ]
+                      },
+                      {
+                        "Address": [
+                          "ClientData",
+                          "Address"
+                        ]
+                      },
+                      {
+                        "GSTIN": [
+                          "ClientData",
+                          "GSTIN"
+                        ]
+                      },
+                      {
+                        "AENo": [
+                          "ClientData",
+                          "AENo"
+                        ]
+                      }
+                    ]
+                  },
+                  "Key": "JobSelector"
+                },
+                {
+                  "Label": "Approved Estimate No.",
+                  "Type": "text",
+                  "Name": "AENo",
+                  "Key": "AENo",
+                  "Placeholder": "Approved Estimate No",
+                  "Required": 1
+                }
+              ]
+            }
+          },
+          {
+            "Size": 12,
+            "Content_Type": "form-elements",
+            "Key": "formElementFour",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Title",
+                  "Name": "Title",
+                  "Key": "Title",
+                  "Placeholder": "Enter the job title",
+                  "Type": "text",
+                  "Required": 1
+                }
+              ]
+            }
+          },
+          {
+            "Size": 12,
+            "Content_Type": "form-elements",
+            "Key": "formElementFive",
+            "Content": {
+              "Elements": [
+                {
+                  "Name": "multipleForm-ignore",
+                  "Type": "multiple",
+                  "Display": "table",
+                  "Add": "Add",
+                  "AddVariant": "success",
+                  "DeleteIcon": true,
+                  "DeleteLabel": "Action",
+                  "DeleteVariant": "danger",
+                  "Key": "multipleFormOne",
+                  "Elements": [
+                    {
+                      "Label": "Particular",
+                      "Type": "editor",
+                      "Width": "500",
+                      "Class": "textarea Particular",
+                      "Name": "Particular[]",
+                      "Key": "Particular",
+                      "Default": ""
+                    },
+                    {
+                      "Type": "parameters",
+                      "Width": "200",
+                      "Label": "Product Details",
+                      "Key": "parameters",
+                      "Name": "Parameters-ignore",
+                      "Elements": [
+                        {
+                          "Label": "Sub Product",
+                          "Type": "select",
+                          "Name": "Product[]",
+                          "Class": "Product",
+                          "Source": "get/Orders/Work/SubProducts/",
+                          "OnChange": {
+                            "Name": "SubProduct",
+                            "Source": "get/Orders/Work/ProductParameters/",
+                            "SourceRequestBody": [
+                              [
+                                "Product",
+                                "Product[]"
+                              ]
+                            ],
+                            "Response": "Add",
+                            "Type": "measurements"
+                          },
+                          "RelativeDiv": "ProductParameters",
+                          "Required": 1
+                        }
+                      ]
+                    },
+                    {
+                      "Label": "Rate",
+                      "Type": "text",
+                      "Name": "Rate[]",
+                      "Class": "money multiply",
+                      "Default": "0",
+                      "OnChange": {
+                        "Calculate": {
+                          "data": [
+                            "Rate[]"
+                          ],
+                          "Operators": [
+                            "add"
+                          ],
+                          "resultFill": "Net[]"
+                        }
+                      },
+                      "Key": "Rate"
+                    },
+                    {
+                      "Label": "Net Rate",
+                      "Type": "text",
+                      "Name": "Net[]",
+                      "Class": "net money",
+                      "Default": "0",
+                      "OnChange": {
+                        "CalculateRows": {
+                          "data": "Net[]",
+                          "Operator": "add",
+                          "resultFill": "Total"
+                        }
+                      },
+                      "Disabled": true,
+                      "Key": "Net"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "Size": 6,
+            "Key": "formElementsFive",
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "editor",
+                  "Key": "Remarks",
+                  "Label": "Remarks",
+                  "Name": "Remarks",
+                  "Rows": 5,
+                  "Placeholder": "Any important message to add"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 6,
+            "Key": "subTotalOne",
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Total",
+                  "Type": "text",
+                  "Percentage": false,
+                  "Class": "add money",
+                  "Name": "Total",
+                  "Disabled": true,
+                  "Key": "Total",
+                  "Default": "0"
+                },
+                {
+                  "Label": "Discount",
+                  "Key": "Discount",
+                  "Type": "percentage",
+                  "Percentage": true,
+                  "Class": "subtract money",
+                  "Name": "Discount",
+                  "BaseValue": "Total"
+                },
+                {
+                  "Type": "Tax",
+                  "Key": "Tax",
+                  "Name": "Tax-Ignore",
+                  "Source": "get/Orders/Work/Tax/",
+                  "SourceRequestBody": [
+                    [
+                      "Supplier",
+                      "Id"
+                    ]
+                  ],
+                  "BaseValues": [
+                    "Total",
+                    "Discount"
+                  ],
+                  "Operators": [
+                    "add",
+                    "subtract"
+                  ],
+                  "OnChange": {
+                    "Calculate": [
+                      {
+                        "BaseValues": [
+                          "Total",
+                          "Discount",
+                          "this"
+                        ],
+                        "Operators": [
+                          "add",
+                          "subtract",
+                          "add"
+                        ],
+                        "RoundAndFill": "RoundOff"
+                      },
+                      {
+                        "BaseValues": [
+                          "Total",
+                          "Discount",
+                          "this",
+                          "RoundOff"
+                        ],
+                        "Operators": [
+                          "add",
+                          "subtract",
+                          "add",
+                          "add"
+                        ],
+                        "Fill": "GrandTotal"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Type": "roundOff",
+                  "Key": "RoundOff",
+                  "Label": "Round Off",
+                  "Name": "RoundOff",
+                  "Class": "add money",
+                  "Percentage": false,
+                  "Default": "0",
+                  "BaseValues": [
+                    "Total",
+                    "Discount",
+                    "Tax"
+                  ],
+                  "Operators": [
+                    "add",
+                    "subtract",
+                    "add"
+                  ],
+                  "Disabled": true
+                },
+                {
+                  "Label": "Grand Total",
+                  "Key": "Grand Total",
+                  "Type": "total",
+                  "Default": "0",
+                  "Percentage": false,
+                  "Name": "GrandTotal",
+                  "BaseValues": [
+                    "Total",
+                    "Discount",
+                    "Tax",
+                    "RoundOff"
+                  ],
+                  "Operators": [
+                    "add",
+                    "subtract",
+                    "add",
+                    "add"
+                  ],
+                  "Disabled": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]

@@ -1,0 +1,44 @@
+[
+    {
+      "Size": 12,
+      "Key": "taxLayout",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "taxLayout",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Manage/Taxes/all/",
+            "List": "Taxes",
+            "ListClass": "data-table",
+            "Title": "All Tax rates",
+            "THead": [
+              "Tax",
+              "Rate",
+              "Country",
+              "Region",
+              "Documents",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Tax",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Manage','Taxes','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "/Manage/Taxes/Create/",
+                "Path": "create/Manage/Taxes/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

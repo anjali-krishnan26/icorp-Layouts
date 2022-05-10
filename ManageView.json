@@ -1,0 +1,61 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "data",
+      "Content": {
+        "Path": "get/Manage/Branches/",
+        "Split": [
+          4,
+          8
+        ],
+        "Title": "Branch",
+        "Elements": [
+          {
+            "Type": "p",
+            "Label": "Name",
+            "Key": "Branch"
+          },
+          {
+            "Type": "p",
+            "Label": "Tax Number",
+            "Key": "Tax_No"
+          },
+          {
+            "Type": "p",
+            "Label": "Address",
+            "Key": "Address"
+          },
+          {
+            "Type": "p",
+            "Label": "Phone",
+            "Key": "Phone"
+          },
+          {
+            "Type": "p",
+            "Label": "Email",
+            "Key": "Email"
+          },
+          {
+            "Type": "p",
+            "Label": "Category",
+            "Key": "Category"
+          },
+          {
+            "Type": "p",
+            "Label": "Region",
+            "Key": "Region"
+          },
+          {
+            "Type": "p",
+            "Label": "Country",
+            "Key": "Country"
+          },
+          {
+            "Type": "p",
+            "Label": "Created on",
+            "Key": "Created_At"
+          }
+        ]
+      }
+    }
+  ]

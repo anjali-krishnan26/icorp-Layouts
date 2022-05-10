@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/Channels/custom/",
+            "List": "Channels",
+            "ListClass": "data-table",
+            "Title": "Channels List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Channel",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Channels','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/Channels/Create/",
+                "Path": "create/Masters/Channels/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

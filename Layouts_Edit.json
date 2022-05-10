@@ -1,0 +1,99 @@
+[
+    {
+      "Size": 12,
+      "Key": "invoiceRowOne",
+      "Content_Type": "invoice",
+      "Content": {
+        "Path": "update/Manage/Layouts/",
+        "Source": "get/Manage/Layouts/",
+        "Button": "UPDATE LAYOUT",
+        "OnSuccess": "/Manage/Layouts",
+        "Elements": [
+          {
+            "Size": 4,
+            "Key": "formElementsOne",
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "text",
+                  "Key": "Module",
+                  "Label": "Module",
+                  "Name": "Module"
+                },
+                {
+                  "Type": "text",
+                  "Key": "SubModule",
+                  "Label": "Sub Module",
+                  "Name": "SubModule"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Key": "formElementsTwo",
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "text",
+                  "Key": "Type",
+                  "Label": "Type",
+                  "Name": "Type"
+                },
+                {
+                  "Type": "text",
+                  "Key": "Rule",
+                  "Label": "Rule",
+                  "Name": "Rule"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Key": "formElementsThree",
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "text",
+                  "Key": "Title",
+                  "Label": "Title",
+                  "Name": "Title"
+                },
+                {
+                  "Type": "text",
+                  "Key": "SubTitle",
+                  "Label": "Subtitle",
+                  "Name": "SubTitle"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 12,
+            "Key": "formElementsFour",
+            "Content_Type": "form-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Type": "hidden",
+                  "Key": "Id",
+                  "Name": "Id"
+                },
+                {
+                  "Type": "textarea",
+                  "Class": "json",
+                  "Rows": 20,
+                  "Name": "Layout",
+                  "Key": "Layout"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]

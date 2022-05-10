@@ -1,0 +1,173 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "form",
+      "Content": {
+        "Path": "create/Masters/Channels/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "SAVE CHANNELS",
+        "Elements": [
+          {
+            "Label": "Name",
+            "Type": "autocomplete",
+            "Name": "Name",
+            "Source": "business/search/",
+            "Fill": [
+              "Id"
+            ],
+            "Placeholder": "Enter Channel Name",
+            "Required": 1
+          },
+          {
+            "Type": "hidden",
+            "Name": "Id",
+            "Key": "Id"
+          },
+          {
+            "Label": "Code",
+            "Type": "text",
+            "Name": "Code",
+            "Placeholder": "Enter Shortcode",
+            "Required": 1
+          },
+          {
+            "Label": "Address",
+            "Type": "textarea",
+            "Name": "Address",
+            "Placeholder": "Enter Office Address",
+            "Required": 0
+          },
+          {
+            "Label": "City",
+            "Type": "text",
+            "Name": "City",
+            "Placeholder": "Enter City",
+            "Required": 0
+          },
+          {
+            "Label": "Country",
+            "Type": "select",
+            "Name": "Country",
+            "Source": "list/Basic/country/all/",
+            "OnChange": {
+              "Name": "Region",
+              "Source": "list/Basic/region/all/",
+              "Response": "Options"
+            },
+            "Required": 1
+          },
+          {
+            "Label": "Region",
+            "Name": "Region",
+            "Type": "select",
+            "Disabled": true,
+            "Required": 1
+          },
+          {
+            "Label": "Pincode",
+            "Type": "text",
+            "Name": "Pincode",
+            "Placeholder": "Enter Pincode",
+            "Required": 0
+          },
+          {
+            "Label": "Website",
+            "Type": "text",
+            "Name": "Website",
+            "Placeholder": "Enter website without &apos;http://&apos;",
+            "Required": 0
+          },
+          {
+            "Label": "Email",
+            "Type": "text",
+            "Name": "Email",
+            "Placeholder": "Enter Department Email",
+            "Required": 0
+          },
+          {
+            "Label": "Phone",
+            "Type": "text",
+            "Name": "Phone",
+            "Placeholder": "Enter Department Phone",
+            "Required": 0
+          },
+          {
+            "Label": "GSTIN",
+            "Type": "text",
+            "Name": "GSTIN",
+            "Placeholder": "Enter GSTIN",
+            "Required": 0
+          },
+          {
+            "Type": "multiple",
+            "Display": "card",
+            "Label": "Contact",
+            "Name": "Contact-Ignore",
+            "Split": [
+              4,
+              8
+            ],
+            "Add": "Add",
+            "AddVariant": "success",
+            "Delete": "Delete",
+            "DeleteVariant": "danger",
+            "Elements": [
+              {
+                "Label": "Name",
+                "Type": "text",
+                "Name": "StaffName[]",
+                "Placeholder": "Enter Staff Name",
+                "Required": 1,
+                "Key": "StaffName[]",
+                "Default": ""
+              },
+              {
+                "Label": "Designation",
+                "Type": "text",
+                "Name": "Designation[]",
+                "Placeholder": "Enter Designation",
+                "Required": 0,
+                "Key": "Designation[]",
+                "Default": ""
+              },
+              {
+                "Label": "Email",
+                "Type": "text",
+                "Name": "StaffEmail[]",
+                "Placeholder": "Enter Staff Email",
+                "Required": 0,
+                "Key": "StaffEmail[]",
+                "Default": ""
+              },
+              {
+                "Label": "Mobile",
+                "Type": "text",
+                "Name": "StaffMobile[]",
+                "Placeholder": "Enter Staff Mobile",
+                "Required": 0,
+                "Key": "StaffMobile[]",
+                "Default": ""
+              }
+            ]
+          },
+          {
+            "Label": "Credit Limit",
+            "Type": "text",
+            "Name": "Credit",
+            "Placeholder": "Enter Credit Limit",
+            "Required": 0
+          },
+          {
+            "Label": "Name in Tally",
+            "Type": "text",
+            "Name": "TallyName",
+            "Placeholder": "Very sensitive data",
+            "Required": 0
+          }
+        ]
+      }
+    }
+  ]

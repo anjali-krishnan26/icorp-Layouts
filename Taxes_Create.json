@@ -1,0 +1,42 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "form",
+      "Content": {
+        "Path": "create/Manage/Taxes/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "SAVE TAXES",
+        "Elements": [
+          {
+            "Label": "Tax",
+            "Type": "select",
+            "Name": "Tax",
+            "Source": "get/Components/Form/AllTax/",
+            "OnChange": {
+              "Name": "TaxSlab",
+              "Source": "get/Components/Form/TaxSlabs/",
+              "Response": "Options"
+            },
+            "Required": 1
+          },
+          {
+            "Label": "TaxSlab",
+            "Name": "TaxSlab",
+            "Type": "select",
+            "Disabled": true,
+            "Required": 1
+          },
+          {
+            "Label": "Documents",
+            "Type": "checkboxes",
+            "Name": "Documents",
+            "Source": "get/Components/Form/Documents/",
+            "Required": 1
+          }
+        ]
+      }
+    }
+  ]

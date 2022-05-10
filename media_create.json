@@ -384,6 +384,42 @@
                     "Key": "Rate"
                   },
                   {
+                    "Label": "Release Rate",
+                    "Type": "text",
+                    "Name": "ReleaseRate[]",
+                    "Class": "money multiply",
+                    "Default": "0",
+                    "OnChange": {
+                      "Calculate": {
+                        "data": [
+                          "ReleaseRate[]"
+                        ],
+                        "Operators": [
+                          "add"
+                        ],
+                        "resultFill": "NetReleaseRate[]"
+                      }
+                    },
+                    "Key": "ReleaseRate"
+                  },
+                  {
+                    "Label": "NetReleaseRate",
+                    "Type": "hidden",
+                    "Name": "NetReleaseRate[]",
+                    "Class": "net money",
+                    "IsNumber": true,
+                    "Default": "0",
+                    "OnChange": {
+                      "CalculateRows": {
+                        "data": "NetReleaseRate[]",
+                        "Operator": "add",
+                        "resultFill": "TotalReleaseRate"
+                      }
+                    },
+                    "Disabled": true,
+                    "Key": "Net"
+                  },
+                  {
                     "Label": "Amount",
                     "Type": "text",
                     "Name": "Net[]",
@@ -440,13 +476,76 @@
                 "IsNumber": true
               },
               {
+                "Label": "Total Release Rate",
+                "Type": "hidden",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "TotalReleaseRate",
+                "Disabled": true,
+                "Key": "TotalReleaseRate",
+                "Default": "0",
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
+              },
+              {
                 "Label": "Discount",
                 "Key": "Discount",
                 "Type": "percentage",
                 "Percentage": true,
                 "Class": "subtract money",
                 "Name": "Discount",
-                "BaseValue": "Total"
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "TotalReleaseRate",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
+              },
+              {
+                "Label": "Estimated Revenue",
+                "Type": "text",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "EstimatedRevenue",
+                "Disabled": true,
+                "Key": "Revenue",
+                "Default": "0.00",
+                "BaseValues": [
+                  "TotalReleaseRate",
+                  "Discount"
+                ],
+                "Operators": [
+                  "add",
+                  "subtract"
+                ]
               },
               {
                 "Type": "Tax",

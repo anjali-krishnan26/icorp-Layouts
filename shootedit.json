@@ -7,7 +7,7 @@
       "Path": "update/Estimates/Shoot/",
       "Source": "get/Estimates/Shoot/",
       "Button": "UPDATE ESTIMATE",
-      "OnSuccess": "/Estimates/Creative",
+      "OnSuccess": "/Estimates/Shoot",
       "SourceResponseRemove": [
         "Finance",
         "Rows",
@@ -17,6 +17,10 @@
         [
           "Client",
           "Id"
+        ],
+        [
+          "Header",
+          "Headers"
         ]
       ],
       "Elements": [
@@ -146,7 +150,6 @@
               {
                 "Label": "Estimate No. #",
                 "Type": "text",
-                "Source": "get/Estimates/Shoot/NewEstimateNumber/",
                 "Name": "EstimateNo",
                 "Placeholder": "Estimate Number",
                 "Required": 1,
@@ -164,9 +167,10 @@
                     "Title",
                     "ClientName",
                     "Id",
-                    "Address",
+                    "GSTIN",
                     "JobId[]",
-                    "GSTIN"
+                    "PANNO",
+                    "Address"
                   ],
                   "rowData": [
                     {
@@ -286,6 +290,13 @@
                 "Placeholder": "Enter the job title",
                 "Type": "text",
                 "Required": 1
+              },
+              {
+                "Label": "Header",
+                "Name": "Header",
+                "Key": "Header",
+                "Placeholder": "Enter the header",
+                "Type": "textarea"
               }
             ]
           }
@@ -326,6 +337,7 @@
                       {
                         "Label": "Sub Product",
                         "Type": "select",
+                        "SelectDisabled": true,
                         "Name": "Product[]",
                         "Class": "Product",
                         "Source": "get/Estimates/Shoot/SubProducts/",
@@ -382,11 +394,11 @@
                       {
                         "Label": "Supplier",
                         "Type": "select",
-                        "IsMulti": true,
-                        "SelectLimit": 1000,
+                        "IsMulti": "true",
                         "Name": "Supplier[]",
+                        "SelectLimit": 1000,
                         "Class": "Supplier",
-                        "Source": "list/Masters/Suppliers/active/",
+                        "Source": "list/Masters/Suppliers/custom/",
                         "Required": 0
                       },
                       {
@@ -486,6 +498,34 @@
                 "Disabled": true,
                 "Key": "Total",
                 "Default": "0"
+              },
+              {
+                "Label": "Total Costing",
+                "Type": "hidden",
+                "Percentage": false,
+                "Class": "add money",
+                "Name": "TotalCosting",
+                "Disabled": true,
+                "Key": "TotalCosting",
+                "Default": "0",
+                "BaseValue": "Total",
+                "OnChange": {
+                  "Calculate": [
+                    {
+                      "BaseValues": [
+                        "Total",
+                        "Discount",
+                        "this"
+                      ],
+                      "Operators": [
+                        "add",
+                        "subtract",
+                        "subtract"
+                      ],
+                      "ResultFill": "EstimatedRevenue"
+                    }
+                  ]
+                }
               },
               {
                 "Label": "Discount",

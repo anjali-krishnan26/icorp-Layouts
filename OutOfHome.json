@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/OutOfHome/custom/",
+            "List": "OutOfHome",
+            "ListClass": "data-table",
+            "Title": "OutOfHome List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Out of Home",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','OutOfHome','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/OutOfHome/Create/",
+                "Path": "create/Masters/OutOfHome/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

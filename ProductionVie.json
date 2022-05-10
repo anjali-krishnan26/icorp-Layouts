@@ -1,6 +1,7 @@
 [
   {
     "Size": 12,
+    "Key": "estimateRowOne",
     "Content_Type": "invoice-view",
     "Content": {
       "Source": "get/Estimates/Production/EstimateData/",
@@ -82,9 +83,6 @@
               {
                 "Key": "JobDate",
                 "Type": "date",
-                "Style": {
-                  "fontWeight": "bold"
-                },
                 "Label": "Date"
               }
             ]
@@ -146,18 +144,19 @@
             "Elements": [
               {
                 "Key": "No",
-                "Label": "Sl No.",
+                "Label": "Sl. No.",
                 "Width": "50"
               },
               {
                 "Key": "Particular",
-                "Label": "Description",
+                "Label": "Title",
                 "Width": "60%"
               },
               {
                 "Key": "Net",
                 "Label": "Amount",
-                "Class": "text-right"
+                "Class": "text-right",
+                "IsNumber": true
               }
             ]
           }
@@ -200,7 +199,7 @@
                 "Key": "estimateEdit",
                 "Type": "link",
                 "Class": "btn btn-warning",
-                "Link": "/Estimates/Production/Edit/?requested={Id}",
+                "Link": "/Estimates/Production/Edit/{Id}",
                 "Access": [
                   "rwe00",
                   "rwea0",
@@ -215,7 +214,7 @@
                 "Link": "/Estimates/Production/Print/?requested={Id}&LetterHead=On&Colour=True",
                 "Target": "_blank",
                 "PrintFileSuffix": "CR",
-                "Label": " PDF WITH LetterHead and Colour"
+                "Label": "PDF WITH LetterHead and Colour"
               },
               {
                 "Key": "estimatePrintTwo",

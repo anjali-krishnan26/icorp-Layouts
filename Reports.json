@@ -1,0 +1,159 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "invoice",
+      "Content": {
+        "Elements": [
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementOne",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Report",
+                  "Type": "select",
+                  "Name": "Report",
+                  "DefaultOptions": [
+                    {
+                      "label": "SUMMARY",
+                      "value": "Summary"
+                    }
+                  ],
+                  "Placeholder": "Select Report",
+                  "Key": "Report"
+                },
+                {
+                  "Label": "Client",
+                  "Type": "async-select",
+                  "Name": "ClientName",
+                  "Source": "get/Masters/Clients/searchEntity/",
+                  "SourceRequestBody": [
+                    [
+                      "term",
+                      ""
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementTwo",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Category",
+                  "Type": "select",
+                  "Name": "Category",
+                  "DefaultOptions": [
+                    {
+                      "label": "PRODUCTION",
+                      "value": "Production"
+                    },
+                    {
+                      "label": "CREATIVE",
+                      "value": "Creative"
+                    },
+                    {
+                      "label": "MEDIA",
+                      "value": "Media"
+                    },
+                    {
+                      "label": "SHOOT",
+                      "value": "Shoot"
+                    },
+                    {
+                      "label": "EVENT",
+                      "value": "Event"
+                    },
+                    {
+                      "label": "RETAINER",
+                      "value": "Retainer"
+                    },
+                    {
+                      "label": "PROJECT",
+                      "value": "Project"
+                    }
+                  ],
+                  "Placeholder": "Select Category",
+                  "Key": "Report"
+                },
+                {
+                  "Label": "Branch",
+                  "Type": "async-select",
+                  "Name": "Branch",
+                  "Source": "list/Manage/Branches/active/",
+                  "SourceRequestBody": [
+                    [
+                      "SearchQuery",
+                      ""
+                    ]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Content_Type": "form-elements",
+            "Key": "formElementThree",
+            "Content": {
+              "Elements": [
+                {
+                  "Label": "Process",
+                  "Type": "select",
+                  "Name": "Process",
+                  "DefaultOptions": [
+                    {
+                      "label": "ESTIMATES",
+                      "value": "Estimates"
+                    },
+                    {
+                      "label": "ORDERS",
+                      "value": "Orders"
+                    },
+                    {
+                      "label": "INVOICES",
+                      "value": "Invoices"
+                    }
+                  ],
+                  "Placeholder": "Select Process",
+                  "Key": "Report"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Size": 12,
+      "Key": "reportRowOne",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "reportList",
+          "Content_Type": "list",
+          "Content": {
+            "HasFilter": true,
+            "Path": "get/Reports/MIS/GetReport/",
+            "List": "MIS Reports",
+            "ListClass": "data-table",
+            "Title": "MIS List",
+            "THead": [
+              "DocumentNo",
+              "Date",
+              "ClientName",
+              "Branch",
+              "Total",
+              "GrandTotal"
+            ]
+          }
+        }
+      ]
+    }
+  ]

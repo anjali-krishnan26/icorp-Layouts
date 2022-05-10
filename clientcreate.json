@@ -70,7 +70,7 @@
           "Required": 1
         },
         {
-          "Label": "Region",
+          "Label": "State",
           "Key": "Region",
           "Name": "Region",
           "Type": "select",

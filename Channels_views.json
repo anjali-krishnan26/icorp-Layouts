@@ -1,0 +1,149 @@
+[
+    {
+      "Size": 12,
+      "Key": "clientsRowOne",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 4,
+          "Key": "clientsData",
+          "Content_Type": "data",
+          "Content": {
+            "Title": "Supplier Details",
+            "Path": "get/Masters/Channels/",
+            "Split": [
+              4,
+              8
+            ],
+            "Elements": [
+              {
+                "Type": "p",
+                "Label": "Name",
+                "Key": "Name"
+              },
+              {
+                "Type": "p",
+                "Label": "Client Code",
+                "Key": "Code"
+              },
+              {
+                "Type": "p",
+                "Label": "Address",
+                "Key": "Address"
+              },
+              {
+                "Type": "p",
+                "Label": "City",
+                "Key": "City"
+              },
+              {
+                "Type": "p",
+                "Label": "State",
+                "Key": "Region"
+              },
+              {
+                "Type": "p",
+                "Label": "Country",
+                "Key": "Country"
+              },
+              {
+                "Type": "p",
+                "Label": "Phone",
+                "Key": "Phone"
+              },
+              {
+                "Type": "p",
+                "Label": "Email",
+                "Key": "Email"
+              },
+              {
+                "Type": "p",
+                "Label": "GSTIN",
+                "Key": "GSTIN"
+              },
+              {
+                "Type": "p",
+                "Label": "Credit Allowed",
+                "Key": "Credit"
+              }
+            ]
+          }
+        },
+        {
+          "Size": 8,
+          "Key": "clientsContactList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "get/Masters/Channels/Contacts/",
+            "RequestBody": {
+              "Id": "Id"
+            },
+            "ResponseData": "Contacts",
+            "List": "Contacts",
+            "ListClass": "data-table",
+            "Title": "Contacts",
+            "THead": [
+              "Name",
+              "Designation",
+              "Email",
+              "Mobile",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Contact",
+                "Access": [
+                  "rwea0",
+                  "rwe00",
+                  "rw000",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Contact','modal')"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Size": 12,
+      "Key": "clientsRowTwo",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "clientsJobList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "get/Job/ByChannels/",
+            "RequestBody": {
+              "Id": "Id"
+            },
+            "List": "Jobs",
+            "ListClass": "data-table",
+            "Title": "Jobs",
+            "THead": [
+              "JobCode",
+              "Title",
+              "Orders",
+              "Payable",
+              "Payed",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Job",
+                "Access": [
+                  "rwea0",
+                  "rwe00",
+                  "rw000",
+                  "rwead"
+                ],
+                "Function": "add('Job','','modal')"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,58 @@
+[
+    {
+      "Size": 12,
+      "Key": "pluginWrapper-1",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 6,
+          "Key": "ReceivablesList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Transactions/Receivables/custom/",
+            "List": "Receivables",
+            "ListClass": "data-table",
+            "Title": "Receivables List",
+            "THead": [
+              "#",
+              "InvoiceNo",
+              "Client",
+              "Receivable",
+              "Payment"
+            ]
+          }
+        },
+        {
+          "Size": 6,
+          "Key": "ReceiptList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Transactions/Receipts/custom/",
+            "List": "Receipt",
+            "ListClass": "data-table",
+            "Title": "Receipt List",
+            "THead": [
+              "#",
+              "InvoiceNo",
+              "ReceiptNo",
+              "ReceiptDate",
+              "ReceivedAmount"
+            ],
+            "Buttons": [
+              {
+                "Button": "Create Receipt",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "goto('/Transactions/Receivables/Create/')",
+                "RedirectTo": "Transactions/Receivables/Create"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

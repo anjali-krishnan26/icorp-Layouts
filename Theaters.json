@@ -1,0 +1,41 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Masters/Theatres/custom/",
+            "List": "Theatres",
+            "ListClass": "data-table",
+            "Title": "Theatres List",
+            "THead": [
+              "Code",
+              "Name",
+              "City",
+              "Phone",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Theatre",
+                "Access": [
+                  "rw000",
+                  "rwe00",
+                  "rwea0",
+                  "rwead"
+                ],
+                "Function": "add('Masters','Theatres','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "Masters/Theatres/Create/",
+                "Path": "create/Masters/Theatres/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]

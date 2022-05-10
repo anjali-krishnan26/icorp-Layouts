@@ -1,0 +1,53 @@
+[
+    {
+      "Size": 12,
+      "Key": "formRowOne",
+      "Content_Type": "form",
+      "Content": {
+        "Path": "addcontact/Masters/Channels/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "ADD CHANNELS CONTACT",
+        "Elements": [
+          {
+            "Label": "Name",
+            "Type": "text",
+            "Name": "StaffName",
+            "Placeholder": "Enter Staff Name",
+            "Required": 1,
+            "Key": "StaffName",
+            "Default": ""
+          },
+          {
+            "Label": "Designation",
+            "Type": "text",
+            "Name": "Designation",
+            "Placeholder": "Enter Designation",
+            "Required": 0,
+            "Key": "Designation",
+            "Default": ""
+          },
+          {
+            "Label": "Email",
+            "Type": "text",
+            "Name": "StaffEmail",
+            "Placeholder": "Enter Staff Email",
+            "Required": 0,
+            "Key": "StaffEmail",
+            "Default": ""
+          },
+          {
+            "Label": "Mobile",
+            "Type": "text",
+            "Name": "StaffMobile",
+            "Placeholder": "Enter Staff Mobile",
+            "Required": 0,
+            "Key": "StaffMobile",
+            "Default": ""
+          }
+        ]
+      }
+    }
+  ]

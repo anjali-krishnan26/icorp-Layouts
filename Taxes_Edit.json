@@ -1,0 +1,39 @@
+[
+    {
+      "Size": 12,
+      "Content_Type": "edit_form",
+      "Content": {
+        "Path": "update/Manage/Taxes/",
+        "Split": [
+          4,
+          8
+        ],
+        "Button": "UPDATE TAX",
+        "Elements": [
+          {
+            "Type": "hidden",
+            "Name": "Id",
+            "Key": "Id"
+          },
+          {
+            "Label": "Tax",
+            "Type": "select",
+            "Name": "Tax",
+            "Key": "TaxId",
+            "Source": "get/Components/Form/AllTax/",
+            "OnChange": "new_input('select', 'TaxSlab', 'get/Components/Form/TaxSlabs/', {tax: this.value}, $('option:selected', this).attr('data-taxslab'),[4,8])",
+            "RelativeDiv": "TaxSlab",
+            "Required": 1
+          },
+          {
+            "Label": "Documents",
+            "Type": "checkboxes",
+            "Key": "DocumentsKey",
+            "Name": "Documents",
+            "Source": "get/Components/Form/Documents/",
+            "Required": 1
+          }
+        ]
+      }
+    }
+  ]

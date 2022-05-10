@@ -1,0 +1,225 @@
+[
+    {
+      "Size": 12,
+      "Key": "invoice",
+      "Content_Type": "invoice-view",
+      "Content": {
+        "Source": "get/Orders/Work/OrderData/",
+        "Print": "Orders/Work/Print/",
+        "PrintFilePrefix": "Release_Order",
+        "PrintFileCode": "OrderNo",
+        "Elements": [
+          {
+            "Size": 12,
+            "Key": "orderHeader",
+            "Content_Type": "header",
+            "Content": [
+              {
+                "Key": "orderImage",
+                "Content_Type": "brand",
+                "Content": {
+                  "Source": "get/Manage/BusinessInfo/Logo/",
+                  "Height": "60"
+                }
+              },
+              {
+                "Key": "orderSmallElement",
+                "Content_Type": "small-elements",
+                "Content": {
+                  "Elements": [
+                    {
+                      "Key": "BusinessAddress",
+                      "Source": "get/Manage/BusinessInfo/Address/",
+                      "Type": "text"
+                    }
+                  ],
+                  "Class": "ms-auto"
+                }
+              }
+            ]
+          },
+          {
+            "Size": 4,
+            "Key": "orderInvoiceElementOne",
+            "Content_Type": "invoice-elements",
+            "Content": {
+              "Title": "Customer",
+              "Elements": [
+                {
+                  "Key": "ClientName",
+                  "Type": "text",
+                  "Style": "strong"
+                },
+                {
+                  "Key": "GSTIN",
+                  "Label": "GSTIN",
+                  "Type": "text"
+                },
+                {
+                  "Key": "ClientAddress",
+                  "Type": "address"
+                },
+                {
+                  "Key": "Title",
+                  "Type": "text",
+                  "Label": "Title"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Key": "estimateInvoiceElementTwo",
+            "Content_Type": "invoice-elements",
+            "Content": {
+              "Elements": []
+            }
+          },
+          {
+            "Size": 4,
+            "Key": "orderInvoiceElementTwo",
+            "Content_Type": "invoice-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Key": "OrderNo",
+                  "Type": "text",
+                  "Label": "ORDER #",
+                  "Style": "strong"
+                },
+                {
+                  "Key": "Job",
+                  "Type": "text",
+                  "Label": "JOB"
+                },
+                {
+                  "Key": "OrderDate",
+                  "Type": "date",
+                  "Label": "DATE"
+                },
+                {
+                  "Key": "ValidTill",
+                  "Type": "date",
+                  "Label": "VALID TILL"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 12,
+            "Key": "orderInvoiceRowOne",
+            "Content_Type": "invoice-rows",
+            "Content": {
+              "Source": "get/Orders/Work/OrderRows/",
+              "RequestBody": [
+                [
+                  "Id",
+                  "id"
+                ]
+              ],
+              "Elements": [
+                {
+                  "Key": "No",
+                  "Label": "#",
+                  "Width": "50"
+                },
+                {
+                  "Key": "Particular",
+                  "Label": "Particular",
+                  "Width": "60%"
+                },
+                {
+                  "Key": "Rate",
+                  "Label": "Unit Rate"
+                },
+                {
+                  "Key": "Qty",
+                  "Label": "Quantity"
+                },
+                {
+                  "Key": "Net",
+                  "Label": "Net Rate",
+                  "Class": "text-right"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 8,
+            "Key": "orderInvoiceElementFive",
+            "Content_Type": "invoice-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Key": "Remarks",
+                  "Type": "remarks"
+                }
+              ]
+            }
+          },
+          {
+            "Size": 4,
+            "Key": "orderInvoiceElementSubTotal",
+            "Content_Type": "invoice-subtotal",
+            "Content": {
+              "Source": "get/Orders/Work/SubTotal/",
+              "RequestBody": [
+                [
+                  "Id",
+                  "id"
+                ]
+              ]
+            }
+          },
+          {
+            "Size": 12,
+            "Key": "orderInvoiceElementSix",
+            "Content_Type": "button-elements",
+            "Content": {
+              "Elements": [
+                {
+                  "Key": "estimateEdit",
+                  "Type": "link",
+                  "Class": "btn btn-warning",
+                  "Link": "/Orders/Work/Edit/?requested={Id}",
+                  "Access": [
+                    "rwe00",
+                    "rwea0",
+                    "rwead"
+                  ],
+                  "Label": "EDIT WORK ORDER"
+                },
+                {
+                  "Key": "orderPrintOne",
+                  "Type": "link",
+                  "Class": "btn btn-primary",
+                  "Link": "/Orders/Work/Print/?requested={Id}&LetterHead=On&Colour=True",
+                  "Target": "_blank",
+                  "PrintFileSuffix": "CR",
+                  "Label": "PDF WITH LetterHead and Colour"
+                },
+                {
+                  "Key": "ordersPrintTwo",
+                  "Type": "link",
+                  "Class": "btn btn-primary",
+                  "Link": "/Orders/Work/Print/?requested={Id}&LetterHead=Off&Colour=False",
+                  "Target": "_blank",
+                  "PrintFileSuffix": "NH",
+                  "Label": "PDF WITHOUT LetterHead"
+                },
+                {
+                  "Key": "ordersPrintThree",
+                  "Type": "link",
+                  "Class": "btn btn-primary",
+                  "Link": "/Orders/Work/Print/?requested={Id}&LetterHead=On&Colour=False",
+                  "Target": "_blank",
+                  "PrintFileSuffix": "BW",
+                  "Label": "PDF B&W"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]

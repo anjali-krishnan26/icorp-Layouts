@@ -1,0 +1,42 @@
+[
+    {
+      "Size": 12,
+      "Key": "branchesLayout",
+      "Content_Type": "rows",
+      "Content": [
+        {
+          "Size": 12,
+          "Key": "branchesList",
+          "Content_Type": "list",
+          "Content": {
+            "Path": "list/Manage/Branches/active/",
+            "List": "Branches",
+            "ListClass": "data-table",
+            "Title": "More means growth",
+            "THead": [
+              "Name",
+              "Phone",
+              "Category",
+              "Action"
+            ],
+            "Buttons": [
+              {
+                "Button": "Add Branch",
+                "Access": [
+                  "rwea0",
+                  "rwe00",
+                  "rw000",
+                  "rwead"
+                ],
+                "Function": "add('Manage','Branches','viewport')",
+                "RequestBody": {},
+                "Modal": "create",
+                "Layout": "/Manage/Branches/Create/",
+                "Path": "create/Manage/Branches/"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
